@@ -351,25 +351,23 @@ Sometimes, $\lambda$ is also a zero of $q(x)$, so $q(x) = (x-\lambda) \cdot h(x)
 \end{example}
 
 
-\section{Diagonalizability} %
+\section{Diagonalizability}
 
-
-\begin{theorem}[Equivalent Conditions for Diagonalizability] \label{thm:diag_equiv}
-  Let $V$ be an $n$-dimensional vector space over $K$, and $T \in \End(V)$. The following statements, are equivalent: %
+\begin{theorem}[Equivalent Conditions for Diagonalizability]\label{thm:diag_equiv}
+  Let $V$ be an $n$-dimensional vector space over $K$ and $T \in \End(V)$. The following statements are equivalent:
   \begin{enumerate}
-    \item $T$ is diagonalizable. %
-    \item There exists a basis for $V$ whose elements are eigenvectors of $T$. %
-    \item The characteristic polynomial $P_T(x)$ splits into a product of linear factors, and for every eigenvalue of $T$, the geometric and algebraic multiplicities are equal. %
-    \item $\sum_{i=1}^k \dim \Eig_T(\lambda_i) = \dim V$, where $\lambda_1, \dots, \lambda_k \in K$ are all the distinct eigenvalues of $T$. %
-    \item $V \cong \bigoplus_{i=1}^k \Eig_T(\lambda_i)$. %
+    \item[\textbf{(a)}] $T$ is diagonalizable.
+    \item[\textbf{(b)}] There exists a basis for $V$ whose elements are eigenvectors of $T$.
+    \item[\textbf{(c)}] The characteristic polynomial $P_T(x)$ splits into a product of linear factors and, for every eigenvalue of $T$, the geometric and algebraic multiplicities are equal.
+    \item[\textbf{(d)}] $\sum_{i=1}^k \dim \Eig_T(\lambda_i) = \dim V$, where $\lambda_1, \dots, \lambda_k \in K$ are all the distinct eigenvalues of $T$.
+    \item[\textbf{(e)}] $V \cong \bigoplus_{i=1}^k \Eig_T(\lambda_i)$.
   \end{enumerate}
 \end{theorem}
 
 \begin{proof}
-  $(a) \iff (b)$ has, already, been proved. %
+  \textbf{(a)} $\iff$ \textbf{(b)} has already been proved.
 
-  $(a) \implies (c)$: Let $\mathcal{B}$ be a basis, in which $[T]_{\mathcal{B}}^{\mathcal{B}}$ has diagonal form. %
-  By changing the order of the elements in $\mathcal{B}$, we can arrange, that $[T]_{\mathcal{B}}^{\mathcal{B}}$ has the following block-diagonal shape: %
+  \textbf{(a)} $\implies$ \textbf{(c)}: Let $\mathcal{B}$ be a basis in which $[T]_{\mathcal{B}}^{\mathcal{B}}$ has diagonal form. By changing the order of the elements in $\mathcal{B}$, we can arrange that $[T]_{\mathcal{B}}^{\mathcal{B}}$ has the following block-diagonal shape:
   \begin{equation} \label{eq:ordered_diag_matrix}
     [T]_{\mathcal{B}}^{\mathcal{B}} = \left( \begin{array}{c|c|c}
       \begin{matrix} \lambda_1 & \dots & 0 \\ \vdots & \ddots & \vdots \\ 0 & \dots & \lambda_1 \end{matrix} & \text{\Large 0} & \text{\Large 0} \\
@@ -378,184 +376,192 @@ Sometimes, $\lambda$ is also a zero of $q(x)$, so $q(x) = (x-\lambda) \cdot h(x)
       \hline
       \text{\Large 0} & \text{\Large 0} & \begin{matrix} \lambda_k & \dots & 0 \\ \vdots & \ddots & \vdots \\ 0 & \dots & \lambda_k \end{matrix}
     \end{array} \right)
-  \end{equation} %
+  \end{equation}
   where $\mathcal{B} = (v_1^{(1)}, \dots, v_{\ell_1}^{(1)}, v_1^{(2)}, \dots, v_{\ell_2}^{(2)}, \dots, v_1^{(k)}, \dots, v_{\ell_k}^{(k)})$.
-  Here $\lambda_1, \dots, \lambda_k$ are the eigenvalues of $T$ (with $\lambda_i \ne \lambda_j$ for all $i \ne j$), and $v_1^{(i)}, \dots, v_{\ell_i}^{(i)}$ are eigenvectors of $\lambda_i$ for all $i$. %
-  The characteristic polynomial is:
+  Here $\lambda_1, \dots, \lambda_k$ are the eigenvalues of $T$ (with $\lambda_i \ne \lambda_j$ for all $i \ne j$) and $v_1^{(i)}, \dots, v_{\ell_i}^{(i)}$ are eigenvectors of $\lambda_i$ for all $i$. The characteristic polynomial is:
   \begin{equation} \label{eq:char_poly_splits}
     P_T(x) = \det([T]_{\mathcal{B}}^{\mathcal{B}} - x \cdot I_n) = (\lambda_1 - x)^{\ell_1} \cdot \dots \cdot (\lambda_k - x)^{\ell_k}.
-  \end{equation} %
-  This shows, that $P_T(x)$ splits as a product of linear factors. %
-  It, also, shows, that $\lambda_1, \dots, \lambda_k$ are all the eigenvalues of $T$. %
-  It remains to show, $m_g(T; \lambda_i) = m_a(T; \lambda_i)$, for all $i$. %
-  Clearly, $v_1^{(i)}, \dots, v_{\ell_i}^{(i)} \in \Eig_T(\lambda_i)$ are linearly independent, hence, $\ell_i \le \dim \Eig_T(\lambda_i) = m_g(T; \lambda_i)$, by definition. %
-  But, from \eqref{eq:char_poly_splits}, we, also, have $\ell_i = m_a(T; \lambda_i)$. %
-  So, $m_a(T; \lambda_i) \le m_g(T; \lambda_i)$, for all $i$. %
-  At the same time, we, always, have the inequality $m_g(T; \lambda_i) \le m_a(T; \lambda_i)$. %
-  Therefore, $m_g(T; \lambda_i) = m_a(T; \lambda_i)$, for all $i$. (The proof, also, shows, that $\ell_i = m_g(T; \lambda_i) = m_a(T; \lambda_i)$). %
+  \end{equation}
+  This shows that $P_T(x)$ splits as a product of linear factors. It also shows that $\lambda_1, \dots, \lambda_k$ are all the eigenvalues of $T$. It remains to show that $m_g(T; \lambda_i) = m_a(T; \lambda_i)$ for all $i$.
+  Clearly, $v_1^{(i)}, \dots, v_{\ell_i}^{(i)} \in \Eig_T(\lambda_i)$ are linearly independent; hence $\ell_i \le \dim \Eig_T(\lambda_i) = m_g(T; \lambda_i)$ by definition.
+  But from \eqref{eq:char_poly_splits}, we also have $\ell_i = m_a(T; \lambda_i)$.
+  So $m_a(T; \lambda_i) \le m_g(T; \lambda_i)$ for all $i$. At the same time, we always have the inequality $m_g(T; \lambda_i) \le m_a(T; \lambda_i)$.
+  Therefore, $m_g(T; \lambda_i) = m_a(T; \lambda_i)$ for all $i$. (The proof also shows that $\ell_i = m_g(T; \lambda_i) = m_a(T; \lambda_i)$).
 
-  $(c) \implies (d)$: We assume, that $P_T(x) = (\lambda_1 - x)^{\ell_1} \dots (\lambda_k - x)^{\ell_k}$, and $m_g(T; \lambda_i) = m_a(T; \lambda_i)$. %
-  Then $\lambda_1, \dots, \lambda_k$ are exactly all the eigenvalues of $T$. By definition, $\ell_i = m_a(T; \lambda_i)$. %
-  We have $n = \dim V = \sum_{i=1}^k m_a(T; \lambda_i)$ (because $\deg P_T(x) = n$). %
-  By assumption, this equals $\sum_{i=1}^k m_g(T; \lambda_i) = \sum_{i=1}^k \dim \Eig_T(\lambda_i)$. %
+  \textbf{(c)} $\implies$ \textbf{(d)}: We assume that $P_T(x) = (\lambda_1 - x)^{\ell_1} \dots (\lambda_k - x)^{\ell_k}$ and $m_g(T; \lambda_i) = m_a(T; \lambda_i)$.
+  Then $\lambda_1, \dots, \lambda_k$ are exactly the eigenvalues of $T$. By definition, $\ell_i = m_a(T; \lambda_i)$.
+  We have $n = \dim V = \sum_{i=1}^k m_a(T; \lambda_i)$ (because $\deg P_T(x) = n$).
+  By assumption, this equals $\sum_{i=1}^k m_g(T; \lambda_i) = \sum_{i=1}^k \dim \Eig_T(\lambda_i)$.
 
-  $(d) \implies (e)$: Recall, that $\Eig_T(\lambda_1) + \dots + \Eig_T(\lambda_k)$ is a direct sum. %
-  Consequently, $\dim(\Eig_T(\lambda_1) + \dots + \Eig_T(\lambda_k)) = \dim \Eig_T(\lambda_1) + \dots + \dim \Eig_T(\lambda_k) = \dim V$ (by assumption). %
-  Since $\Eig_T(\lambda_1) + \dots + \Eig_T(\lambda_k) \subseteq V$ is a linear subspace, we have, $\Eig_T(\lambda_1) + \dots + \Eig_T(\lambda_k) = V$. %
-  This implies that $\Eig_T(\lambda_1) + \dots + \Eig_T(\lambda_k) \cong \Eig_T(\lambda_1) \oplus \dots \oplus \Eig_T(\lambda_k)$. %
+  \textbf{(d)} $\implies$ \textbf{(e)}: Recall that $\Eig_T(\lambda_1) + \dots + \Eig_T(\lambda_k)$ is a direct sum.
+  Consequently, $\dim(\Eig_T(\lambda_1) + \dots + \Eig_T(\lambda_k)) = \dim \Eig_T(\lambda_1) + \dots + \dim \Eig_T(\lambda_k) = \dim V$ by assumption.
+  Since $\Eig_T(\lambda_1) + \dots + \Eig_T(\lambda_k) \subseteq V$ is a linear subspace, we have $\Eig_T(\lambda_1) + \dots + \Eig_T(\lambda_k) = V$.
+  This implies that $\Eig_T(\lambda_1) + \dots + \Eig_T(\lambda_k) \cong \Eig_T(\lambda_1) \oplus \dots \oplus \Eig_T(\lambda_k)$.
 
-  $(e) \implies (a)$: If $V \cong \Eig_T(\lambda_1) \oplus \dots \oplus \Eig_T(\lambda_k)$, then, since $\Eig_T(\lambda_1) + \dots + \Eig_T(\lambda_k)$ is a direct sum, and, also, a linear subspace of $V$, we must have $\Eig_T(\lambda_1) + \dots + \Eig_T(\lambda_k) = V$. %
-  If we choose a basis $v_1^{(i)}, \dots, v_{\ell_i}^{(i)}$ for $\Eig_T(\lambda_i)$ for all $i$ (where $\ell_i = m_g(T; \lambda_i)$), then, the union $(v_1^{(1)}, \dots, v_{\ell_1}^{(1)}, \dots, v_1^{(k)}, \dots, v_{\ell_k}^{(k)})$ is a basis of $V$, and all the vectors in it are eigenvectors of $T$. %
+  \textbf{(e)} $\implies$ \textbf{(a)}: If $V \cong \Eig_T(\lambda_1) \oplus \dots \oplus \Eig_T(\lambda_k)$, then since $\Eig_T(\lambda_1) + \dots + \Eig_T(\lambda_k)$ is a direct sum and also a linear subspace of $V$, we must have $\Eig_T(\lambda_1) + \dots + \Eig_T(\lambda_k) = V$.
+  If we choose a basis $v_1^{(i)}, \dots, v_{\ell_i}^{(i)}$ for $\Eig_T(\lambda_i)$ for all $i$ (where $\ell_i = m_g(T; \lambda_i)$), then the union $(v_1^{(1)}, \dots, v_{\ell_1}^{(1)}, \dots, v_1^{(k)}, \dots, v_{\ell_k}^{(k)})$ is a basis of $V$ and all the vectors in it are eigenvectors of $T$.
 \end{proof}
 
-\begin{corollary}[Sufficient Condition for Diagonalizability] \label{cor:sufficient_diag}
-  If $P_T(x)$ splits as a product of linear factors, and each eigenvalue $\lambda$ of $T$ has algebraic multiplicity $1$, then, $T$ is diagonalizable. %
+\begin{corollary}[Sufficient Condition for Diagonalizability]\label{cor:sufficient_diag}
+  If $P_T(x)$ splits as a product of linear factors and each eigenvalue $\lambda$ of $T$ has algebraic multiplicity $1$, then $T$ is diagonalizable.
 \end{corollary}
 
 \begin{proof}
-  If $m_a(T; \lambda) = 1$, this implies, that $m_g(T; \lambda) = 1$. Now, use point (c) of Theorem \ref{thm:diag_equiv}. %
+  If $m_a(T; \lambda) = 1$, this implies that $m_g(T; \lambda) = 1$. Now use point \textbf{(c)} of Theorem \ref{thm:diag_equiv}.
 \end{proof}
 
-\subsection{Trigonalization}
-(= bringing a matrix/endomorphism to upper triangular form) %
 
-\begin{question}
-  Let $T \in \End(V)$. We want to find a basis $\mathcal{B}$ for $T$, such that $[T]_{\mathcal{B}}^{\mathcal{B}}$ has as simple as possible form. %
+
+\subsection{Trigonalization}
+(= bringing a matrix/endomorphism to upper triangular form)
+
+\begin{question}\label{q:trig_basis}
+  Let $T \in \End(V)$. We want to find a basis $\mathcal{B}$ for $T$ such that $[T]_{\mathcal{B}}^{\mathcal{B}}$ has as simple a form as possible.
 \end{question}
 \begin{itemize}
-  \item If $T$ is diagonalizable, we're okay. But, we've seen, that this is not always the case. e.g. $A = \left(\begin{smallmatrix} 1 & 1 \\ 0 & 1 \end{smallmatrix}\right)$ is not diagonalizable (we saw: $m_a(A; 1) = 2, m_g(A; 1) = 1$). %
-  \item A weaker, (hence more general), condition is trigonalizability. %
+  \item If $T$ is diagonalizable, we are okay. But we have seen that this is not always the case. For example, $A = \left(\begin{smallmatrix} 1 & 1 \\ 0 & 1 \end{smallmatrix}\right)$ is not diagonalizable (we saw: $m_a(A; 1) = 2, m_g(A; 1) = 1$).
+  \item A weaker (hence more general) condition is trigonalizability.
 \end{itemize}
 
 \begin{definition}[Trigonalizable Endomorphism] \label{def:trigonalizable}
-  We say, that $T \in \End(V)$ is trigonalizable, if there exists a basis $\mathcal{B}$ for $V$, such that $[T]_{\mathcal{B}}^{\mathcal{B}}$ is upper triangular, i.e., %
+  We say that $T \in \End(V)$ is trigonalizable if there exists a basis $\mathcal{B}$ for $V$ such that $[T]_{\mathcal{B}}^{\mathcal{B}}$ is upper triangular, i.e.,
   \begin{equation} \label{eq:upper_triangular_def}
     [T]_{\mathcal{B}}^{\mathcal{B}} = \begin{pmatrix} \lambda_1 & \dots & * \\ 0 & \ddots & \vdots \\ 0 & \dots & \lambda_n \end{pmatrix} \quad (n = \dim V).
-  \end{equation} %
+  \end{equation}
 \end{definition}
 
 \begin{theorem}[Trigonalizability Condition] \label{thm:trig_condition}
-  Let $V$ be a finite-dimensional vector space over $K$, and $T \in \End(V)$. Then, $T$ is trigonalizable, if and only if, $P_T(x)$ splits as a product of linear factors, i.e., $P_T(x) = (\lambda_1 - x)^{\ell_1} \dots (\lambda_k - x)^{\ell_k}$. %
+  Let $V$ be a finite-dimensional vector space over $K$ and $T \in \End(V)$. Then $T$ is trigonalizable if and only if $P_T(x)$ splits as a product of linear factors, i.e., $P_T(x) = (\lambda_1 - x)^{\ell_1} \dots (\lambda_k - x)^{\ell_k}$.
 \end{theorem}
 
 \subsection*{Short Digression}
 
 \begin{theorem}[Fundamental Theorem of Algebra] \label{thm:fta}
-  Every polynomial $p(x) \in \mathbb{C}[x]$ with complex coefficients splits as a product of linear factors, and a constant, i.e., %
-  $p(x) = C \cdot (x-a_1)^{n_1} \dots (x-a_r)^{n_r}$, with $C \in \mathbb{C}$, $r \ge 0$, and $a_i \in \mathbb{C}$. %
+  Every polynomial $p(x) \in \mathbb{C}[x]$ with complex coefficients splits as a product of linear factors and a constant, i.e.,
+  $p(x) = C \cdot (x-a_1)^{n_1} \dots (x-a_r)^{n_r}$, with $C \in \mathbb{C}$, $r \ge 0$, and $a_i \in \mathbb{C}$.
 \end{theorem}
-\begin{remark}
-  (Proof in analysis course, or complex analysis in 3rd semester). %
+
+\begin{remark}\label{rem:fta_proof}
+  The proof is typically covered in an analysis course or complex analysis in the third semester.
 \end{remark}
 
-\begin{corollary} \label{cor:complex_trigonalizable}
-  Let $V$ be a finite-dimensional vector space over $\mathbb{C}$. Then, every $T \in \End(V)$ is trigonalizable. %
+\begin{corollary}[Trigonalizability over $\mathbb{C}$]\label{cor:complex_trigonalizable}
+  Let $V$ be a finite-dimensional vector space over $\mathbb{C}$. Then every $T \in \End(V)$ is trigonalizable.
 \end{corollary}
 
 \subsection{Proof of the Theorem on Trigonalizability}
 
 \begin{proof}
-  $\implies$: If there exists a basis $\mathcal{B}$, such that $[T]_{\mathcal{B}}^{\mathcal{B}}$ is upper triangular as in \eqref{eq:upper_triangular_def}, then: %
-  \[ P_T(x) = \det([T]_{\mathcal{B}}^{\mathcal{B}} - x \cdot I_n) = \det \begin{pmatrix} \lambda_1 - x & \dots & * \\ 0 & \ddots & \vdots \\ 0 & \dots & \lambda_n - x \end{pmatrix} = (\lambda_1 - x) \dots (\lambda_n - x). \] %
+  $\implies$: If there exists a basis $\mathcal{B}$ such that $[T]_{\mathcal{B}}^{\mathcal{B}}$ is upper triangular as in \eqref{eq:upper_triangular_def}, then:
+  \[ P_T(x) = \det([T]_{\mathcal{B}}^{\mathcal{B}} - x \cdot I_n) = \det \begin{pmatrix} \lambda_1 - x & \dots & * \\ 0 & \ddots & \vdots \\ 0 & \dots & \lambda_n - x \end{pmatrix} = (\lambda_1 - x) \dots (\lambda_n - x). \]
 
-  $\impliedby$: We will use induction, on $n = \dim V$. %
+  $\impliedby$: We will use induction on $n = \dim V$.
 
-  \textbf{Base case $n=1$}: In this case, $V$ is $1$-dimensional, and $[T]_{\mathcal{B}}^{\mathcal{B}} = \left(\begin{smallmatrix} \lambda \end{smallmatrix}\right)$, so, $T$ is even diagonalizable. %
+  \textbf{Base case $n=1$}: In this case, $V$ is $1$-dimensional and $[T]_{\mathcal{B}}^{\mathcal{B}} = \left(\begin{smallmatrix} \lambda \end{smallmatrix}\right)$, so $T$ is even diagonalizable.
 
-  \textbf{Inductive step}: Let $n \ge 1$. Assume, that the theorem holds for all vector spaces of dimension $\le n$, and every endomorphism of such a space. %
-  Let $V$ be an $(n+1)$-dimensional vector space, and $T \in \End(V)$, such that $P_T(x)$ splits as a product of linear factors. %
+  \textbf{Inductive step}: Let $n \ge 1$. Assume that the theorem holds for all vector spaces of dimension $\le n$ and every endomorphism of such a space.
+  Let $V$ be an $(n+1)$-dimensional vector space and $T \in \End(V)$ such that $P_T(x)$ splits as a product of linear factors.
 
-  Let $\lambda_1$ be a zero of $P_T(x)$. This implies, that there exists an eigenvector $u_1 \in \ker(T - \lambda_1 \cdot \mathrm{id}_V)$. %
-  Extend $u_1$, to a basis $\mathcal{B}' = (u_1, u_2, \dots, u_{n+1})$ of $V$. %
-  Then, the matrix of $T$ in basis $\mathcal{B}'$, has the block form:
+  Let $\lambda_1$ be a zero of $P_T(x)$. This implies that there exists an eigenvector $u_1 \in \ker(T - \lambda_1 \cdot \mathrm{id}_V)$.
+  Extend $u_1$ to a basis $\mathcal{B}' = (u_1, u_2, \dots, u_{n+1})$ of $V$.
+  Then the matrix of $T$ in basis $\mathcal{B}'$ has the block form:
   \begin{equation} \label{eq:M_block}
     [T]_{\mathcal{B}'}^{\mathcal{B}'} = \left(\begin{array}{c|c} \lambda_1 & * \dots * \\ \hline 0 & \\ \vdots & A \\ 0 & \end{array}\right) =: M
-  \end{equation} %
-  where $A$ is an $n \times n$ matrix. %
-  By block determinant properties, we have, $P_T(x) = (\lambda_1 - x) \cdot P_A(x)$. %
-  Since $P_T(x)$ splits as a product of linear factors, so, does $P_A(x)$. %
+  \end{equation}
+  where $A$ is an $n \times n$ matrix.
+  By block determinant properties, we have $P_T(x) = (\lambda_1 - x) \cdot P_A(x)$.
+  Since $P_T(x)$ splits as a product of linear factors, so does $P_A(x)$.
 
-  Consider the linear map $T_A : K^n \rightarrow K^n$ defined by $T_A(u) = A \cdot u$. %
-  By the induction hypothesis, there exists a basis $\mathcal{C}$ of $K^n$, such that:
+  Consider the linear map $T_A : K^n \rightarrow K^n$ defined by $T_A(u) = A \cdot u$.
+  By the induction hypothesis, there exists a basis $\mathcal{C}$ of $K^n$ such that:
   \begin{equation}
     [T_A]_{\mathcal{C}}^{\mathcal{C}} = \begin{pmatrix} \lambda_2 & \dots & * \\ 0 & \ddots & \vdots \\ 0 & \dots & \lambda_{n+1} \end{pmatrix}.
-  \end{equation} %
-  Denote by $\mathcal{E}$ the standard basis of $K^n$. We know, that $[T_A]_{\mathcal{C}}^{\mathcal{C}} = [\mathrm{id}]_{\mathcal{C}}^{\mathcal{E}} \cdot [T_A]_{\mathcal{E}}^{\mathcal{E}} \cdot [\mathrm{id}]_{\mathcal{E}}^{\mathcal{C}} = Q^{-1}AQ$, where $Q = [\mathrm{id}]_{\mathcal{C}}^{\mathcal{E}}$. %
-  Consequently, $Q^{-1}AQ = \left(\begin{smallmatrix} \lambda_2 & \dots & * \\ 0 & \ddots & \vdots \\ 0 & \dots & \lambda_{n+1} \end{smallmatrix}\right)$. %
+  \end{equation}
+  Denote by $\mathcal{E}$ the standard basis of $K^n$. We know that $[T_A]_{\mathcal{C}}^{\mathcal{C}} = [\mathrm{id}]_{\mathcal{C}}^{\mathcal{E}} \cdot [T_A]_{\mathcal{E}}^{\mathcal{E}} \cdot [\mathrm{id}]_{\mathcal{E}}^{\mathcal{C}} = Q^{-1}AQ$, where $Q = [\mathrm{id}]_{\mathcal{C}}^{\mathcal{E}}$.
+  Consequently, $Q^{-1}AQ = \left(\begin{smallmatrix} \lambda_2 & \dots & * \\ 0 & \ddots & \vdots \\ 0 & \dots & \lambda_{n+1} \end{smallmatrix}\right)$.
 
-  Now, define the $(n+1) \times (n+1)$ block matrix:
+  Now define the $(n+1) \times (n+1)$ block matrix:
   \begin{equation} \label{eq:P_underline}
     \underline{P} := \left(\begin{array}{c|c} 1 & 0 \dots 0 \\ \hline 0 & \\ \vdots & Q \\ 0 & \end{array}\right) \in M_{(n+1) \times (n+1)}(K).
-  \end{equation} %
+  \end{equation}
 
-  Claim: $\underline{P}$ is invertible, with $\underline{P}^{-1} = \left(\begin{array}{c|c} 1 & 0 \dots 0 \\ \hline 0 & \\ \vdots & Q^{-1} \\ 0 & \end{array}\right)$, and, $\underline{P}^{-1}M\underline{P} = \left(\begin{array}{c|c} \lambda_1 & * \dots * \\ \hline 0 & \\ \vdots & Q^{-1}AQ \\ 0 & \end{array}\right)$.
+  \begin{claim*}\label{claim:P_invertible_trig}
+    $\underline{P}$ is invertible with $\underline{P}^{-1} = \left(\begin{array}{c|c} 1 & 0 \dots 0 \\ \hline 0 & \\ \vdots & Q^{-1} \\ 0 & \end{array}\right)$, and $\underline{P}^{-1}M\underline{P} = \left(\begin{array}{c|c} \lambda_1 & * \dots * \\ \hline 0 & \\ \vdots & Q^{-1}AQ \\ 0 & \end{array}\right)$.
+  \end{claim*}
 
-  Proof of claim: This follows, from direct block matrix multiplication. %
-  \[ \underline{P} \cdot \underline{P}^{-1} = \left(\begin{array}{c|c} 1 & 0 \\ \hline 0 & Q \end{array}\right) \left(\begin{array}{c|c} 1 & 0 \\ \hline 0 & Q^{-1} \end{array}\right) = \left(\begin{array}{c|c} 1 & 0 \\ \hline 0 & I_n \end{array}\right) \] %
-  \[ \underline{P}^{-1} M \underline{P} = \left(\begin{array}{c|c} 1 & 0 \\ \hline 0 & Q^{-1} \end{array}\right) \left(\begin{array}{c|c} \lambda_1 & * \\ \hline 0 & A \end{array}\right) \left(\begin{array}{c|c} 1 & 0 \\ \hline 0 & Q \end{array}\right) = \left(\begin{array}{c|c} \lambda_1 & * \\ \hline 0 & Q^{-1}AQ \end{array}\right) \] %
-  Since $Q^{-1}AQ$ is upper triangular with diagonal entries $\lambda_2, \dots, \lambda_{n+1}$, the entire matrix $\underline{P}^{-1}M\underline{P}$ is upper triangular. This proves, the claim. %
+  \begin{proof}[Proof of Claim]
+    This follows from direct block matrix multiplication:
+    \[ \underline{P} \cdot \underline{P}^{-1} = \left(\begin{array}{c|c} 1 & 0 \\ \hline 0 & Q \end{array}\right) \left(\begin{array}{c|c} 1 & 0 \\ \hline 0 & Q^{-1} \end{array}\right) = \left(\begin{array}{c|c} 1 & 0 \\ \hline 0 & I_n \end{array}\right) \]
+    \[ \underline{P}^{-1} M \underline{P} = \left(\begin{array}{c|c} 1 & 0 \\ \hline 0 & Q^{-1} \end{array}\right) \left(\begin{array}{c|c} \lambda_1 & * \\ \hline 0 & A \end{array}\right) \left(\begin{array}{c|c} 1 & 0 \\ \hline 0 & Q \end{array}\right) = \left(\begin{array}{c|c} \lambda_1 & * \\ \hline 0 & Q^{-1}AQ \end{array}\right) \]
+    Since $Q^{-1}AQ$ is upper triangular with diagonal entries $\lambda_2, \dots, \lambda_{n+1}$, the entire matrix $\underline{P}^{-1}M\underline{P}$ is upper triangular. This proves the claim.
+  \end{proof}
 
-  We continue with the proof of the Theorem. Recall, we have the basis $\mathcal{B}' = (u_1, u_2, \dots, u_{n+1})$, where $[T]_{\mathcal{B}'}^{\mathcal{B}'} = M$.
+  We continue with the proof of the Theorem. Recall we have the basis $\mathcal{B}' = (u_1, u_2, \dots, u_{n+1})$, where $[T]_{\mathcal{B}'}^{\mathcal{B}'} = M$.
 
-  Claim: There exists a basis $\mathcal{B}$ for $V$, such that $[\mathrm{id}]_{\mathcal{B}'}^{\mathcal{B}} = \underline{P}$.
+  \begin{claim*}\label{claim:trig_basis_exists}
+    There exists a basis $\mathcal{B}$ for $V$ such that $[\mathrm{id}]_{\mathcal{B}'}^{\mathcal{B}} = \underline{P}$.
+  \end{claim*}
 
-  Proof of Claim: Write the entries of $\underline{P}$ as $P_{ij}$. Define $m = n+1$, and set vectors $v_1, \dots, v_m$ as linear combinations of $\mathcal{B}'$ using the columns of $\underline{P}$: %
-  \[ v_k := \sum_{j=1}^m P_{jk} u_j \quad \text{for } k = 1, \dots, m. \] %
-  The set $\mathcal{B} := (v_1, \dots, v_m)$ is a basis for $V$. %
-  To see this, assume, $c_1 v_1 + \dots + c_m v_m = 0$. Substituting the definitions of $v_k$, and using the linear independence of $(u_1, \dots, u_m)$, yields the matrix equation $\underline{P} \cdot (c_1, \dots, c_m)^T = 0$. %
-  Because $\underline{P}$ is invertible, $(c_1, \dots, c_m)^T = 0$, proving, linear independence. %
+  \begin{proof}[Proof of Claim]
+    Write the entries of $\underline{P}$ as $P_{ij}$. Define $m = n+1$ and set vectors $v_1, \dots, v_m$ as linear combinations of $\mathcal{B}'$ using the columns of $\underline{P}$:
+    \[ v_k := \sum_{j=1}^m P_{jk} u_j \quad \text{for } k = 1, \dots, m. \]
+    The set $\mathcal{B} := (v_1, \dots, v_m)$ is a basis for $V$.
+    To see this, assume $c_1 v_1 + \dots + c_m v_m = 0$. Substituting the definitions of $v_k$ and using the linear independence of $(u_1, \dots, u_m)$ yields the matrix equation $\underline{P} \cdot (c_1, \dots, c_m)^T = 0$.
+    Because $\underline{P}$ is invertible, $(c_1, \dots, c_m)^T = 0$, proving linear independence.
+  \end{proof}
 
-  We, now, have the basis $\mathcal{B}$. Computing the matrix of $T$ in this new basis, yields: %
+  We now have the basis $\mathcal{B}$. Computing the matrix of $T$ in this new basis yields:
   \begin{equation} \label{eq:final_trigonal_matrix}
     [T]_{\mathcal{B}}^{\mathcal{B}} = [\mathrm{id}]_{\mathcal{B}}^{\mathcal{B}'} \cdot [T]_{\mathcal{B}'}^{\mathcal{B}'} \cdot [\mathrm{id}]_{\mathcal{B}'}^{\mathcal{B}} = \underline{P}^{-1} \cdot M \cdot \underline{P}.
-  \end{equation} %
-  As proven above, $\underline{P}^{-1} M \underline{P}$ is strictly upper triangular. Therefore, $T$ is trigonalizable. The induction is, now, complete. %
+  \end{equation}
+  As proven above, $\underline{P}^{-1} M \underline{P}$ is strictly upper triangular. Therefore, $T$ is trigonalizable. The induction is now complete.
 \end{proof}
 
 \subsection{An Alternative (And More Elegant) Proof}
 
-\begin{proof} $\impliedby$: We will use induction, on $n = \dim V$. %
+\begin{proof}
+  $\impliedby$: We will use induction on $n = \dim V$.
 
-  Define the $1$-dimensional subspace $U := \Sp(v_1)$, and consider the quotient space $V/U$. Since $v_1$ is an eigenvector, $T(U) \subseteq U$. This invariant property allows us to obtain a well-defined induced endomorphism on the quotient space, $\overline{T} : V/U \rightarrow V/U$, defined by, $\overline{T}([v]) := [Tv]$.
+  Define the $1$-dimensional subspace $U := \Sp(v_1)$ and consider the quotient space $V/U$. Since $v_1$ is an eigenvector, $T(U) \subseteq U$. This invariance property allows us to obtain a well-defined induced endomorphism on the quotient space, $\overline{T} : V/U \rightarrow V/U$, defined by $\overline{T}([v]) := [Tv]$.
 
-  Extend $v_1$, to a basis $\mathcal{B}_1 = (v_1, w_2, \dots, w_{n+1})$ of $V$.
-  The equivalence classes $[w_2], \dots, [w_{n+1}]$ form a basis for $V/U$. In this basis, $\overline{T}$ is represented by an $n \times n$ matrix $A$, and, the full transformation $T$ in basis $\mathcal{B}_1$, takes the block form:
+  Extend $v_1$ to a basis $\mathcal{B}_1 = (v_1, w_2, \dots, w_{n+1})$ of $V$.
+  The equivalence classes $[w_2], \dots, [w_{n+1}]$ form a basis for $V/U$. In this basis, $\overline{T}$ is represented by an $n \times n$ matrix $A$, and the full transformation $T$ in basis $\mathcal{B}_1$ takes the block form:
   \begin{equation} \label{eq:block_matrix_induction}
-    [T]_{\mathcal{B}_1}^{\mathcal{B}_1} = \left(\begin{array}{c|ccc} \lambda_1 & * & \dots & * \\ \hline 0 & & & \\ \vdots & & A & \\ 0 & & & \end{array}\right)
+    [T]_{\mathcal{B}_1}^{\mathcal{B}_1} = \left(\begin{array}{c|ccc} \lambda_1 & * & \dots & * \\ \hline 0 & & & \\ \vdots & & A & \\ 0 & & & \end{array}\right).
   \end{equation}
-  By the properties of block-triangular determinants, we have, $P_T(x) = (\lambda_1 - x) \cdot P_A(x)$. Because $\overline{T}$ has the matrix representation $A$, we know, $P_{\overline{T}}(x) = P_A(x)$, which gives us:
+  By the properties of block-triangular determinants, we have $P_T(x) = (\lambda_1 - x) \cdot P_A(x)$. Because $\overline{T}$ has the matrix representation $A$, we know $P_{\overline{T}}(x) = P_A(x)$, which gives us:
   \[ P_T(x) = (\lambda_1 - x) \cdot P_{\overline{T}}(x). \]
-  Since $P_T(x)$ splits into a product of linear factors by our initial assumption, $P_{\overline{T}}(x)$ must, also, split into linear factors.
+  Since $P_T(x)$ splits into a product of linear factors by our initial assumption, $P_{\overline{T}}(x)$ must also split into linear factors.
 
-  Because $\dim(V/U) = n$, we can apply the induction hypothesis to $\overline{T}$. There exists a basis $\mathcal{C} = (z_2, \dots, z_{n+1})$ for $V/U$, such that its matrix is upper triangular:
+  Because $\dim(V/U) = n$, we can apply the induction hypothesis to $\overline{T}$. There exists a basis $\mathcal{C} = (z_2, \dots, z_{n+1})$ for $V/U$ such that its matrix is upper triangular:
   \begin{equation} \label{eq:quotient_upper_triangular}
     [\overline{T}]_{\mathcal{C}}^{\mathcal{C}} = \begin{pmatrix} \lambda_2 & \dots & * \\ 0 & \ddots & \vdots \\ 0 & \dots & \lambda_{n+1} \end{pmatrix}.
   \end{equation}
-  Now, each element in $\mathcal{C}$ is represented by some vector $v_i \in V$, meaning, $z_i = [v_i]$. (Such a $v_i$ is not unique, but, we pick one specific representative for every $i$).
-  Define the list of vectors $\mathcal{B} = (v_1, v_2, \dots, v_{n+1})$. We claim, that $\mathcal{B}$ is a basis for $V$.
+  Now, each element in $\mathcal{C}$ is represented by some vector $v_i \in V$, meaning $z_i = [v_i]$. (Such a $v_i$ is not unique, but we pick one specific representative for every $i$).
+  Define the list of vectors $\mathcal{B} = (v_1, v_2, \dots, v_{n+1})$. We claim that $\mathcal{B}$ is a basis for $V$.
 
   To show this, we check for linear independence. Assume:
   \[ \alpha_1 v_1 + \alpha_2 v_2 + \dots + \alpha_{n+1} v_{n+1} = 0. \]
-  Passing this equation to the quotient space $V/U$ (where $[v_1] = 0$), we get:
+  Applying the quotient map to this equation (where $[v_1] = 0$), we get:
   \[ \alpha_2[v_2] + \dots + \alpha_{n+1}[v_{n+1}] = 0. \]
-  This implies, that $\alpha_2 z_2 + \dots + \alpha_{n+1} z_{n+1} = 0$.
-  Since the $z_i$ vectors form a basis for $V/U$, they are linearly independent, which forces, $\alpha_2 = \dots = \alpha_{n+1} = 0$.
-  Plugging this back into our original sum, leaves $\alpha_1 v_1 = 0$. Since $v_1 \ne 0$, we must have, $\alpha_1 = 0$.
-  Because the $n+1$ vectors are linearly independent, and $\dim V = n+1$, $\mathcal{B}$ is, indeed, a basis for $V$.
+  This implies that $\alpha_2 z_2 + \dots + \alpha_{n+1} z_{n+1} = 0$.
+  Since the $z_i$ vectors form a basis for $V/U$, they are linearly independent, which forces $\alpha_2 = \dots = \alpha_{n+1} = 0$.
+  Plugging this back into our original sum leaves $\alpha_1 v_1 = 0$. Since $v_1 \ne 0$, we must have $\alpha_1 = 0$.
+  Because the $n+1$ vectors are linearly independent and $\dim V = n+1$, $\mathcal{B}$ is indeed a basis for $V$.
 
-  Finally, we claim, that $[T]_{\mathcal{B}}^{\mathcal{B}}$ is upper triangular.
-  For the first column, we, already, know, $T(v_1) = \lambda_1 v_1$.
-  For the remaining columns ($2 \le i \le n+1$), we read from the upper-triangular matrix \eqref{eq:quotient_upper_triangular}, that:
+  Finally, we claim that $[T]_{\mathcal{B}}^{\mathcal{B}}$ is upper triangular.
+  For the first column, we already know $T(v_1) = \lambda_1 v_1$.
+  For the remaining columns ($2 \le i \le n+1$), we read from the upper-triangular matrix \eqref{eq:quotient_upper_triangular} that:
   \[ [\overline{T}z_i]_{\mathcal{C}} = \alpha_{2i}z_2 + \dots + \alpha_{i-1, i}z_{i-1} + \lambda_i z_i \]
   for some scalars $\alpha \in K$. Translating this back to the equivalence classes:
   \[ [\overline{T}v_i] = \alpha_{2i}[v_2] + \dots + \alpha_{i-1, i}[v_{i-1}] + \lambda_i [v_i]. \]
-  This implies, that the difference between $T v_i$ and the linear combination of the $v$'s, must belong to the kernel of the quotient map, which is $U$:
-  \[ T v_i = \alpha_{2i}v_2 + \dots + \alpha_{i-1, i}v_{i-1} + \lambda_i v_i + u \quad \text{for some } u \in U. \]
-  Since $U = \Sp(v_1)$, we can write $u = \beta_i v_1$ for some scalar $\beta_i$. So,
-  \[ T v_i = \beta_i v_1 + \alpha_{2i}v_2 + \dots + \alpha_{i-1, i}v_{i-1} + \lambda_i v_i. \]
-  Because $T v_i$ only requires basis vectors up to index $i$, $[T]_{\mathcal{B}}^{\mathcal{B}}$ is, strictly, upper triangular:
-  \[ [T]_{\mathcal{B}}^{\mathcal{B}} = \begin{pmatrix} \lambda_1 & \beta_2 & \dots & \beta_{n+1} \\ 0 & \lambda_2 & \dots & * \\ \vdots & \vdots & \ddots & \vdots \\ 0 & 0 & 0 & \lambda_{n+1} \end{pmatrix} \]
-  This completes the inductive step, showing, that $T$ is trigonalizable.
+  This implies that the difference between $Tv_i$ and the linear combination of the $v$'s must belong to the kernel of the quotient map, which is $U$:
+  \[ Tv_i = \alpha_{2i}v_2 + \dots + \alpha_{i-1, i}v_{i-1} + \lambda_i v_i + u \quad \text{for some } u \in U. \]
+  Since $U = \Sp(v_1)$, we can write $u = \beta_i v_1$ for some scalar $\beta_i$. Thus,
+  \[ Tv_i = \beta_i v_1 + \alpha_{2i}v_2 + \dots + \alpha_{i-1, i}v_{i-1} + \lambda_i v_i. \]
+  Because $Tv_i$ only requires basis vectors up to index $i$, $[T]_{\mathcal{B}}^{\mathcal{B}}$ is upper triangular:
+  \[ [T]_{\mathcal{B}}^{\mathcal{B}} = \begin{pmatrix} \lambda_1 & \beta_2 & \dots & \beta_{n+1} \\ 0 & \lambda_2 & \dots & * \\ \vdots & \vdots & \ddots & \vdots \\ 0 & 0 & 0 & \lambda_{n+1} \end{pmatrix}. \]
+  This completes the inductive step, showing that $T$ is trigonalizable.
 \end{proof}
 
 \setcounter{section}{3} % Sets section counter so the next \section is 4 (i.e., 'd')
