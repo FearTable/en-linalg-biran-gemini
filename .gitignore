@@ -1,7 +1,7 @@
 # --- Project Specifics ---
 # This hides your reference notes from GitHub but keeps them for Gemini
-_notes/
-source_material/
+#_notes/
+#source_material/
 
 # --- VS Code & System ---
 .vscode/

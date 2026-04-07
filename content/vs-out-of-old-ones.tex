@@ -123,7 +123,7 @@ An important special case of $\Hom(V,W)$ is when $W=K$.
   We have $\dim V^* = \dim \Hom(V,K) = \dim V \cdot \dim K = \dim V \cdot 1 = \dim V$.
 \end{proof}
 
-Let $V = K_{\text{col}}^n$. Then, we can identify $V^*$ with $K_{\text{row}}^n$ as follows: If $l \in K_{\text{row}}^n$, then $l$ defines a functional $f_l \colon K_{\text{col}}^n \to K$ by $f_l(v) := l \cdot v \in M_{1 \times 1}(K) \cong K$. The map $D \colon K_{\text{row}}^n \to (K_{\text{col}}^n)^*$ defined by $D(l) := f_l$ is a linear map, and therefore, it is an isomorphism.
+Let $V = K_{\text{col}}^n$. Then, we can identify $V^*$ with $K_{\text{row}}^n$ as follows: If $\ell \in K_{\text{row}}^n$, then $\ell$ defines a functional $f_{\ell} \colon K_{\text{col}}^n \to K$ by $f_{\ell}(v) := \ell \cdot v \in M_{1 \times 1}(K) \cong K$. The map $D \colon K_{\text{row}}^n \to (K_{\text{col}}^n)^*$ defined by $D(\ell) := f_{\ell}$ is a linear map, and therefore, it is an isomorphism.
 
 Let $V$ be a finite-dimensional vector space over $K$, and let $\mathcal{B} = (v_1, \dots, v_n)$ be a basis for $V$. For $1 \leq i \leq n$, define a functional $v_i^* \in V^*$ as follows: $v_i^*(v_j) := \delta_{ij}$. This means that $v_i^*(v_i) = 1$, and $v_i^*(v_j) = 0$ for all $j \neq i$. Since $v_1, \dots, v_n$ form a basis for $V$, our definition determines uniquely a well-defined functional $v_i^* \colon V \to K$.
 
@@ -132,8 +132,8 @@ Let $V$ be a finite-dimensional vector space over $K$, and let $\mathcal{B} = (v
 \end{lemma}
 
 \begin{proof}
-  Let $l \in V^*$. We claim that $l = \sum_{i=1}^n l(v_i) \cdot v_i^*$, or in other words, we claim that $l(v) = \sum_{i=1}^n l(v_i) \cdot v_i^*(v)$. Indeed, both sides of the equation are linear maps $V \to K$, and therefore, it is enough to check that it holds for $v = v_1, v = v_2, \dots, v = v_n$, because $v_1, \dots, v_n$ form a basis for $V$. And indeed, for $v = v_k$, we have:
-  $$\sum_{i=1}^n l(v_i) \cdot v_i^*(v_k) = \sum_{i=1}^n l(v_i) \cdot \delta_{ik} = l(v_k).$$
+  Let $\ell \in V^*$. We claim that $\ell = \sum_{i=1}^n \ell(v_i) \cdot v_i^*$, or in other words, we claim that $\ell(v) = \sum_{i=1}^n \ell(v_i) \cdot v_i^*(v)$. Indeed, both sides of the equation are linear maps $V \to K$, and therefore, it is enough to check that it holds for $v = v_1, v = v_2, \dots, v = v_n$, because $v_1, \dots, v_n$ form a basis for $V$. And indeed, for $v = v_k$, we have:
+  $$\sum_{i=1}^n \ell(v_i) \cdot v_i^*(v_k) = \sum_{i=1}^n \ell(v_i) \cdot \delta_{ik} = \ell(v_k).$$
   The claim just proven shows that $v_1^*, \dots, v_n^*$ span $V^*$. Since $\dim V^* = \dim V = n$, it follows that $v_1^*, \dots, v_n^*$ form a basis for $V^*$.
 \end{proof}
 

@@ -124,7 +124,7 @@ So $D$ is completely determined by its values on the four pairings: $D(\epsilon_
   \]
   By assumption, the terms with adjacent equal rows are zero, leaving $D(B) + D(B') = 0$, which naturally implies $D(B') = -D(B)$.
 
-  Now suppose $B'$ is obtained from $B$ by interchanging rows $k$ and $l$ where $k < l$. We can obtain $B'$ by doing a sequence of adjacent row interchanges. Moving row $l$ to position $k$ requires $r = l-k$ adjacent interchanges. Next, moving the original row $k$ down to position $l$ requires $r-1$ adjacent interchanges. The total number of interchanges is $2r - 1$. Since this is always an odd number, we flip the sign an odd number of times. Thus, $D(B') = (-1)^{2r-1} D(B) = -D(B)$.
+  Now suppose $B'$ is obtained from $B$ by interchanging rows $k$ and $\ell$ where $k < \ell$. We can obtain $B'$ by doing a sequence of adjacent row interchanges. Moving row $\ell$ to position $k$ requires $r = \ell-k$ adjacent interchanges. Next, moving the original row $k$ down to position $\ell$ requires $r-1$ adjacent interchanges. The total number of interchanges is $2r - 1$. Since this is always an odd number, we flip the sign an odd number of times. Thus, $D(B') = (-1)^{2r-1} D(B) = -D(B)$.
 
   We now prove (1). Let $A$ be a matrix in which row $i$ equals row $j$ where $i < j$. If $j = i+1$, then by assumption $D(A) = 0$. If $j > i+1$, we interchange row $j$ with row $i+1$ to obtain a matrix $A'$ with two equal adjacent rows.
   By assumption $D(A') = 0$, but by (2), $D(A') = -D(A)$, which implies $D(A) = 0$.
@@ -304,8 +304,10 @@ Denote by $S_n$ the set of permutations $\sigma : \{1, \dots, n\} \to \{1, \dots
 
 \begin{proof}
   Suppose $\sigma = \theta_1 \circ \cdots \circ \theta_m$ and $\tau = \lambda_1 \circ \cdots \circ \lambda_l$, where the $\theta_i$'s and $\lambda_j$'s are all transpositions. Then, their composition is simply $\sigma \circ \tau = \theta_1 \circ \cdots \circ \theta_m \circ \lambda_1 \circ \cdots \circ \lambda_l$, which explicitly consists of $m + l$ transpositions. Therefore:
+  Suppose $\sigma = \theta_1 \circ \cdots \circ \theta_m$ and $\tau = \lambda_1 \circ \cdots \circ \lambda_{\ell}$, where the $\theta_i$'s and $\lambda_j$'s are all transpositions. Then, their composition is simply $\sigma \circ \tau = \theta_1 \circ \cdots \circ \theta_m \circ \lambda_1 \circ \cdots \circ \lambda_{\ell}$, which explicitly consists of $m + \ell$ transpositions. Therefore:
   \[
   \operatorname{sgn}(\sigma \circ \tau) = (-1)^{m+l} = (-1)^m \cdot (-1)^l = \operatorname{sgn}(\sigma) \cdot \operatorname{sgn}(\tau).
+  \operatorname{sgn}(\sigma \circ \tau) = (-1)^{m+\ell} = (-1)^m \cdot (-1)^{\ell} = \operatorname{sgn}(\sigma) \cdot \operatorname{sgn}(\tau).
   \]
 \end{proof}
 
