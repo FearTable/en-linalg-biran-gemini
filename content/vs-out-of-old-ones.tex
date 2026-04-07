@@ -12,7 +12,7 @@
     \item For all $T_1, T_2 \in \Hom(V,W)$, $(T_1 + T_2)(v) := T_1(v) + T_2(v)$ for all $v \in V$.
     \item For all $T \in \Hom(V,W)$ and $\alpha \in K$, $(\alpha \cdot T)(v) := \alpha \cdot T(v)$ for all $v \in V$.
   \end{itemize}
-\end{proposition}
+\end{proposition} 
 
 \begin{proof}
   We claim that $T_1 + T_2 \in \Hom(V,W)$, meaning $T_1 + T_2$ is a linear map. Indeed, for a scalar $a$ and a vector $v$, we have
@@ -31,7 +31,6 @@
 
   Regarding the neutral element, the map $0 \colon V \to W$ defined by $v \mapsto 0$ for all $v \in V$ is linear. We claim that $0 + T = T$. Indeed,
   $$(0 + T)(v) = 0(v) + T(v) = 0 + T(v) = T(v)$$
-  for all $v \in V$. Similarly, one shows that $T + \mathcal{O} = T$.
   for all $v \in V$. Similarly, one shows that $T + 0 = T$.
 \end{proof}
 
@@ -47,7 +46,8 @@ For example, consider the distributivity axiom. For all $\alpha \in K$ and $T_1,
 \end{align*}
 Therefore, $\alpha \cdot (T_1 + T_2) = \alpha \cdot T_1 + \alpha \cdot T_2$.
 
-\begin{theorem}[The Canonical Isomorphism to Matrix Space]
+\begin{theorem}[The Canonical Isomorphism from the Homomorphism Space $\Hom(V,W)$
+   to the Matrix Space $\mathcal{M}_{m \times n}(K)$]
   Let $V$ and $W$ be finite-dimensional vector spaces over $K$, let $\mathcal{B} = (v_1, \dots, v_n)$ be a basis for $V$, and let $\mathcal{C} = (w_1, \dots, w_m)$ be a basis for $W$. Then, $\Psi_{\mathcal{C}}^{\mathcal{B}} \colon \Hom(V,W) \to M_{m \times n}(K)$, defined by
   $$\Psi_{\mathcal{C}}^{\mathcal{B}}(T) := [T]_{\mathcal{C}}^{\mathcal{B}} = \begin{pmatrix} | & & | \\ [T(v_1)]_{\mathcal{C}} & \dots & [T(v_n)]_{\mathcal{C}} \\ | & & | \end{pmatrix},$$
   is a linear map, and moreover, an isomorphism.
@@ -112,7 +112,7 @@ Therefore, $\alpha \cdot (T_1 + T_2) = \alpha \cdot T_1 + \alpha \cdot T_2$.
 An important special case of $\Hom(V,W)$ is when $W=K$.
 
 \begin{definition}[The Dual Space and Linear Functionals]
-  Let $V$ be a vector space over $K$. The dual space of $V$ is defined to be the vector space $V^* := \Hom(V,K)$. The elements of $V^*$ are linear maps $l \colon V \to K$, and are sometimes called functionals.
+  Let $V$ be a vector space over $K$. The \qt{dual space} of $V$ is defined to be the vector space $V^* := \Hom(V,K)$. The elements of $V^*$ are linear maps $\ell \colon V \to K$, and are sometimes called \qt{functionals}.
 \end{definition}
 
 \begin{corollary}[Dimensionality of the Dual Space]
@@ -128,7 +128,7 @@ Let $V = K_{\text{col}}^n$. Then, we can identify $V^*$ with $K_{\text{row}}^n$ 
 Let $V$ be a finite-dimensional vector space over $K$, and let $\mathcal{B} = (v_1, \dots, v_n)$ be a basis for $V$. For $1 \leq i \leq n$, define a functional $v_i^* \in V^*$ as follows: $v_i^*(v_j) := \delta_{ij}$. This means that $v_i^*(v_i) = 1$, and $v_i^*(v_j) = 0$ for all $j \neq i$. Since $v_1, \dots, v_n$ form a basis for $V$, our definition determines uniquely a well-defined functional $v_i^* \colon V \to K$.
 
 \begin{lemma}[Construction of the Dual Basis]
-  The elements $v_1^*, \dots, v_n^* \in V^*$ form a basis for $V^*$. This basis is called the dual basis to $\mathcal{B}$. We denote this basis by $\mathcal{B}^* = (v_1^*, \dots, v_n^*)$. Moreover, for all $l \in V^*$, $l = \sum_{i=1}^n l(v_i) \cdot v_i^*$.
+  The elements $v_1^*, \dots, v_n^* \in V^*$ form a basis for $V^*$. This basis is called the \qt{dual basis} to $\mathcal{B}$. We denote this basis by $\mathcal{B}^* = (v_1^*, \dots, v_n^*)$. Moreover, for all $\ell \in V^*$, $\ell = \sum_{i=1}^n \ell(v_i) \cdot v_i^*$.
 \end{lemma}
 
 \begin{proof}
@@ -150,22 +150,22 @@ Let $V$ be a finite-dimensional vector space over $K$, and let $\mathcal{B} = (v
 
 \begin{proof}
   Let $\mathcal{B} = (v_1, \dots, v_n)$, and let $\mathcal{C} = (w_1, \dots, w_n)$. We have $A := [\id_V]_{\mathcal{C}}^{\mathcal{B}} = \begin{pmatrix} | & & | \\ [v_1]_{\mathcal{C}} & \dots & [v_n]_{\mathcal{C}} \\ | & & | \end{pmatrix}$. Write $A = (a_{ij})$. By definition, $v_i = \sum_{k=1}^n a_{ki} w_k$.
-  Let $\mathcal{C}^* = (w_1^*, \dots, w_n^*)$ be the dual basis of $\mathcal{C}$. We apply the previous lemma to $l = w_j^*$ and the basis $\mathcal{B}$:
+  Let $\mathcal{C}^* = (w_1^*, \dots, w_n^*)$ be the dual basis of $\mathcal{C}$. We apply the previous lemma to $\ell = w_j^*$ and the basis $\mathcal{B}$:
   $$w_j^* = \sum_{i=1}^n w_j^*(v_i) \cdot v_i^* = \sum_{i=1}^n w_j^*\left(\sum_{k=1}^n a_{ki} w_k\right) \cdot v_i^* = \sum_{i=1}^n a_{ji} v_i^*.$$
   Here, only $k = j$ remains from the inner sum. This implies that $[\id_{V^*}]_{\mathcal{B}^*}^{\mathcal{C}^*} = A^T = ([\id_V]_{\mathcal{C}}^{\mathcal{B}})^T$.
 \end{proof}
 
 \subsection{The Dual Map}
 \begin{lemma}[Definition of the Dual Map]
-  Let $V$ and $W$ be vector spaces over $K$, and let $T \colon V \to W$ be a linear map. Define a new map $T^* \colon W^* \to V^*$ by $T^*(l) := l \circ T$ for all $l \in W^*$. Then, $T^*$ is a linear map. It is called the dual map to $T$.
+  Let $V$ and $W$ be vector spaces over $K$, and let $T \colon V \to W$ be a linear map. Define a new map $T^* \colon W^* \to V^*$ by $T^*(\ell) := \ell \circ T$ for all $\ell \in W^*$. Then, $T^*$ is a linear map. It is called the \qt{dual map} to $T$.
 \end{lemma}
 
 \begin{proof}
-  Let $l \in W^*$, meaning $l \colon W \to K$ is linear. Clearly, $l \circ T \colon V \to K$ is a linear map because both $T$ and $l$ are linear, so $T^*(l) := l \circ T \in V^*$. This shows that $T^* \colon W^* \to V^*$ has its target indeed in $V^*$, as claimed.
+  Let $\ell \in W^*$, meaning $\ell \colon W \to K$ is linear. Clearly, $\ell \circ T \colon V \to K$ is a linear map because both $T$ and $\ell$ are linear, so $T^*(\ell) := \ell \circ T \in V^*$. This shows that $T^* \colon W^* \to V^*$ has its target indeed in $V^*$, as claimed.
 
-  We will show now that $T^*$ is a linear map. Let $l \in W^*$, and let $\alpha \in K$. We have that $T^*(\alpha l) \in V^*$ is the map:
-  $$T^*(\alpha l)(v) = ((\alpha l) \circ T)(v) = (\alpha l)(T(v)) = \alpha l(T(v)) = \alpha \cdot (l \circ T)(v) = \alpha (T^* l)(v).$$
-  So, $T^*(\alpha l) = \alpha \cdot T^*(l)$. Similarly, one shows that $T^*(l_1 + l_2) = T^*(l_1) + T^*(l_2)$.
+  We will show now that $T^*$ is a linear map. Let $\ell \in W^*$, and let $\alpha \in K$. We have that $T^*(\alpha \ell) \in V^*$ is the map:
+  $$T^*(\alpha \ell)(v) = ((\alpha \ell) \circ T)(v) = (\alpha \ell)(T(v)) = \alpha \ell(T(v)) = \alpha \cdot (\ell \circ T)(v) = \alpha (T^* \ell)(v).$$
+  So, $T^*(\alpha \ell) = \alpha \cdot T^*(\ell)$. Similarly, one shows that $T^*(\ell_1 + \ell_2) = T^*(\ell_1) + T^*(\ell_2)$.
 \end{proof}
 
 \begin{proposition}[Functoriality and Composition of Duals]
@@ -199,10 +199,10 @@ In summary, applying $(-)^*$, or $\Hom(-,K)$, takes every vector space $V$ and g
 \end{proof}
 
 \subsection{Reflexivity}
-Let $V$ be a vector space over $K$. We have $V^*$, but also $V^{**} := (V^*)^*$, obtained by applying the ``dual'' operation one more time to $V^*$. $V^{**}$ is sometimes called the bidual space of $V$. Is there any relation between $V^{**}$ and $V$?
+Let $V$ be a vector space over $K$. We have $V^*$, but also $V^{**} := (V^*)^*$, obtained by applying the \qt{dual} operation one more time to $V^*$. $V^{**}$ is sometimes called the \qt{bidual space} of $V$. Is there any relation between $V^{**}$ and $V$?
 
 \begin{theorem}[The Canonical Isomorphism to the Bidual Space]
-  Let $V$ be a finite-dimensional vector space over $K$. Then, there is a canonical isomorphism $\tau \colon V \to (V^*)^*$ given by: for $v \in V$, $\tau(v) \colon V^* \to K$ is the map $\tau(v)(l) := l(v)$ for all $l \in V^*$.
+  Let $V$ be a finite-dimensional vector space over $K$. Then, there is a canonical isomorphism $\tau \colon V \to (V^*)^*$ given by: for $v \in V$, $\tau(v) \colon V^* \to K$ is the map $\tau(v)(\ell) := \ell(v)$ for all $\ell \in V^*$.
 \end{theorem}
 
 \begin{remark}
@@ -212,13 +212,13 @@ Let $V$ be a vector space over $K$. We have $V^*$, but also $V^{**} := (V^*)^*$,
 \begin{proof}
   We claim that $\tau$ is a linear map. Indeed, if $v \in V$ and $\alpha \in K$, we have
   \begin{align*}
-    \tau(\alpha v) &= (V^* \ni l \mapsto l(\alpha v) \in K) \\
-    &= (V^* \ni l \mapsto \alpha l(v) \in K) \\
-    &= \alpha \cdot (V^* \ni l \mapsto l(v) \in K) = \alpha \tau(v).
+    \tau(\alpha v) &= (V^* \ni \ell \mapsto \ell(\alpha v) \in K) \\
+    &= (V^* \ni \ell \mapsto \alpha \ell(v) \in K) \\
+    &= \alpha \cdot (V^* \ni \ell \mapsto \ell(v) \in K) = \alpha \tau(v).
   \end{align*}
   Similarly, one shows that $\tau(v' + v'') = \tau(v') + \tau(v'')$.
 
-  We now claim that $\tau$ is injective. To see this, we will show that $\ker(\tau) = 0$. Indeed, let $v \in \ker(\tau)$, meaning $\tau(v) = 0$. Then, $l(v) = 0$ for all $l \in V^*$. Choose a basis $\mathcal{B} = (v_1, \dots, v_n)$ for $V$. Write $v = c_1 v_1 + \dots + c_n v_n$. Apply $v_k^*$ to $v$, and we obtain $v_k^*(c_1 v_1 + \dots + c_n v_n) = 0$. But $v_k^*(c_1 v_1 + \dots + c_n v_n) = c_k$. Therefore, $c_k = 0$, and this holds for $1 \leq k \leq n$, which implies that $v = 0$. This proves that $\tau$ is injective.
+  We now claim that $\tau$ is injective. To see this, we will show that $\ker(\tau) = 0$. Indeed, let $v \in \ker(\tau)$, meaning $\tau(v) = 0$. Then, $\ell(v) = 0$ for all $\ell \in V^*$. Choose a basis $\mathcal{B} = (v_1, \dots, v_n)$ for $V$. Write $v = c_1 v_1 + \dots + c_n v_n$. Apply $v_k^*$ to $v$, and we obtain $v_k^*(c_1 v_1 + \dots + c_n v_n) = 0$. But $v_k^*(c_1 v_1 + \dots + c_n v_n) = c_k$. Therefore, $c_k = 0$, and this holds for $1 \leq k \leq n$, which implies that $v = 0$. This proves that $\tau$ is injective.
 
   To finish the proof, note that $\dim(V^*)^* = \dim V^* = \dim V$. So, since $\tau \colon V \to (V^*)^*$ is injective, it must be an isomorphism.
 \end{proof}
@@ -384,10 +384,10 @@ For an infinite family of vector spaces $\{U_i\}_{i \in I}$, we define the direc
 \section{Quotient Spaces}
 
 \subsection{Equivalence Relation and the Quotient Space}
-
+% \begin{definition*}[The Quotient $V/U$ And The Quotient Map $\pi$] The space $V/U$ is called the quotient of $V$ by $U$, or $V$ modulo $U$. The map $\pi$ is called the quotient map, or the projection onto the quotient space.
 Let $V$ be a vector space over $K$, and let $U \subseteq V$ be a subspace. We will define a new vector space over $K$, denoted by $V/U$, together with a linear map $\pi \colon V \to V/U$ such that $\pi$ is surjective and $\ker(\pi) = U$.
 
-\begin{definition*}[The Quotient $V/U$ And The Quotient Map $\pi$] The space $V/U$ is called the quotient of $V$ by $U$, or $V$ modulo $U$. The map $\pi$ is called the quotient map, or the projection onto the quotient space.
+\begin{definition*}[The Quotient $V/U$ And The Quotient Map $\pi$] The space $V/U$ is called the \qt{quotient} of $V$ by $U$, or $V$ modulo $U$. The map $\pi$ is called the \qt{quotient map}, or the \qt{projection onto the quotient space}.
 \end{definition*}
 
 We begin by defining a relation on $V$. For $v_1, v_2 \in V$, we define $v_1 \sim v_2$ if and only if $v_1 - v_2 \in U$.
@@ -417,7 +417,7 @@ Alternatively, each element in $V/U$ is a set of the form $v + U$, where $v \in 
 \bigbreak
 Geometrically, the nature of the quotient space $\mathbb{R}^2/U$ depends on the dimension of $U$:
 \begin{itemize}
-  \item If $U = \{0\}$ is the trivial subspace, then each equivalence class $[v] = v + \{0\} = \{v\}$ is simply a single \textbf{point}. In this case, no points are ``collapsed'' together, and therefore $\mathbb{R}^2/\{0\} \cong \mathbb{R}^2$.
+  \item If $U = \{0\}$ is the trivial subspace, then each equivalence class $[v] = v + \{0\} = \{v\}$ is simply a single \textbf{point}. In this case, no points are \qt{collapsed} together, and therefore $\mathbb{R}^2/\{0\} \cong \mathbb{R}^2$.
   \item If $U$ is a \textbf{line} through the origin, the equivalence classes $[v]$ forming the space $\mathbb{R}^2/U$ are the lines parallel to $U$, as seen in Figure \ref{fig:quotient_r2}.
 \end{itemize}
 
@@ -445,7 +445,7 @@ Geometrically, the nature of the quotient space $\mathbb{R}^2/U$ depends on the 
 Similarly, we can extend this intuition to $\mathbb{R}^3$, as illustrated in Figure \ref{fig:quotient_r3}:
 \begin{itemize}
   \item If $U = \{0\}$ is the trivial subspace, then each equivalence class $[v] = \{v\}$ is simply a \textbf{point}. Since no two distinct vectors are identified, the quotient space $\mathbb{R}^3/\{0\}$ is isomorphic to $\mathbb{R}^3$ itself.
-  \item If $U$ is a \textbf{plane} through the origin, then $\mathbb{R}^3/U$ is 1-dimensional (by Proposition \ref{prop:dim_quotient}) and therefore isomorphic to a line. Each element $[v]$ is a plane parallel to $U$. The quotient space can be viewed as the set of all such parallel planes ``stacked'' along a transversal direction (see Figure \ref{fig:quotient_plane} and Proposition \ref{prop:iso_complement}).
+  \item If $U$ is a \textbf{plane} through the origin, then $\mathbb{R}^3/U$ is 1-dimensional (by Proposition \ref{prop:dim_quotient}) and therefore isomorphic to a line. Each element $[v]$ is a plane parallel to $U$. The quotient space can be viewed as the set of all such parallel planes \qt{stacked} along a transversal direction (see Figure \ref{fig:quotient_plane} and Proposition \ref{prop:iso_complement}).
   \item If $U$ is a \textbf{line} through the origin, then $\mathbb{R}^3/U$ is 2-dimensional (by Proposition \ref{prop:dim_quotient}) and therefore isomorphic to a plane. Each element $[v]$ is a line parallel to $U$ (see Figure \ref{fig:quotient_line} and Proposition \ref{prop:iso_complement}).
   \item If $U = \mathbb{R}^3$ is the entire space, then there is only one equivalence class, $[v] = \mathbb{R}^3$. The quotient space $\mathbb{R}^3/\mathbb{R}^3$ is the zero vector space, with dimension $0$.
 \end{itemize}
@@ -631,7 +631,7 @@ Let $V$ be a vector space over $K$, and let $U \subseteq V$ be a subspace. Let $
 \end{proof}
 
 \begin{proposition}[Annihilators and Dual Quotients]
-  Let $U \subseteq V$ be a subspace, and define the annihilator $U^\perp := \{l \in V^* \mid l|_U = 0\}$. Then:
+  Let $U \subseteq V$ be a subspace, and define the \qt{annihilator} $U^\perp := \{\ell \in V^* \mid \ell|_U = 0\}$. Then:
   \begin{enumerate}
     \item $U^\perp \subseteq V^*$ is a linear subspace.
     \item There is a canonical isomorphism $(V/U)^* \cong U^\perp$.
@@ -641,7 +641,7 @@ Let $V$ be a vector space over $K$, and let $U \subseteq V$ be a subspace. Let $
 
 \begin{proof}
   \begin{enumerate}
-    \item Clearly, the zero functional vanishes on $U$. For $l_1, l_2 \in U^\perp$ and $\alpha, \beta \in K$, we have $(\alpha l_1 + \beta l_2)(u) = \alpha l_1(u) + \beta l_2(u) = 0$ for all $u \in U$, establishing that $U^\perp$ is a subspace.
+    \item Clearly, the zero functional vanishes on $U$. For $\ell_1, \ell_2 \in U^\perp$ and $\alpha, \beta \in K$, we have $(\alpha \ell_1 + \beta \ell_2)(u) = \alpha \ell_1(u) + \beta \ell_2(u) = 0$ for all $u \in U$, establishing that $U^\perp$ is a subspace.
 
     \item We define a map $L \colon (V/U)^* \to U^\perp$ by $L(s) := s \circ \pi$. This map is well-defined because for any $u \in U$, $(s \circ \pi)(u) = s([u]) = s(0) = 0$. To show linearity, let $s, t \in (V/U)^*$ and $\alpha, \beta \in K$; then
     \[ L(\alpha s + \beta t) = (\alpha s + \beta t) \circ \pi = \alpha(s \circ \pi) + \beta(t \circ \pi) = \alpha L(s) + \beta L(t). \]

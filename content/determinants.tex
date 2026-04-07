@@ -42,7 +42,7 @@ To confirm the sufficiency of this condition and to find the explicit inverse, t
 To generalize the determinant, we should view an $n \times n$ matrix not just as a grid of numbers, but as a collection of $n$ row vectors.
 
 \begin{definition}[$n$-Linearity]\label{def:n_linear}
-  Let $D : M_{n \times n}(K) \to K$ be a function. We say that $D$ is \emph{$n$-linear} if for every $1 \le i \le n$, $D$ is linear as a function of the $i$-th row when all the other $n-1$ rows are held fixed.
+  Let $D : M_{n \times n}(K) \to K$ be a function. We say that $D$ is \qt{$n$-linear} if for every $1 \le i \le n$, $D$ is linear as a function of the $i$-th row when all the other $n-1$ rows are held fixed.
 \end{definition}
 
 We can think of the matrix space $M_{n \times n}(K)$ as a Cartesian product of row vectors: $K^n_{\text{row}} \times \dots \times K^n_{\text{row}}$. If $A$ has rows $\alpha_1, \dots, \alpha_n$, we write $D(A) = D(\alpha_1, \dots, \alpha_n)$.
@@ -101,7 +101,7 @@ So $D$ is completely determined by its values on the four pairings: $D(\epsilon_
 \end{example}
 
 \begin{definition}[Alternating Property]\label{def:alternating}
-  Let $D : M_{n \times n}(K) \to K$ be an $n$-linear function. We say that $D$ is \emph{alternating} if for every matrix $A$ in which some two rows are equal, we have $D(A) = 0$.
+  Let $D : M_{n \times n}(K) \to K$ be an $n$-linear function. We say that $D$ is \qt{alternating} if for every matrix $A$ in which some two rows are equal, we have $D(A) = 0$.
 \end{definition}
 
 \begin{proposition}[Adjacent Swap Property]\label{prop:alternating_swap}
@@ -133,7 +133,7 @@ So $D$ is completely determined by its values on the four pairings: $D(\epsilon_
 \subsection{The Determinant Function}
 
 \begin{definition}[Determinant Function]\label{def:determinant_func}
-  A function $D : M_{n \times n}(K) \to K$ is called a \emph{determinant function} if it is $n$-linear, it is alternating, and it normalizes the identity matrix such that $D(I) = 1$.
+  A function $D : M_{n \times n}(K) \to K$ is called a \qt{determinant function} if it is $n$-linear, it is alternating, and it normalizes the identity matrix such that $D(I) = 1$.
 \end{definition}
 
 \begin{example}[Warmup]
@@ -156,7 +156,7 @@ So $D$ is completely determined by its values on the four pairings: $D(\epsilon_
 \end{example}
 
 \begin{definition}[Submatrix]\label{def:minor_submatrix}
-  Let $A \in M_{n \times n}(K)$, $n \ge 2$, and $1 \le i \le n$, $1 \le j \le n$. We denote by $A(i|j) \in M_{(n-1) \times (n-1)}(K)$ the matrix obtained from $A$ by deleting row $i$ and column $j$. If $D$ is an $(n-1)$-linear function, we intuitively define $D_{ij}(A) := D(A(i|j))$.
+  Let $A \in M_{n \times n}(K)$, $n \ge 2$, and $1 \le i \le n$, $1 \le j \le n$. We denote by $A(i|j) \in M_{(n-1) \times (n-1)}(K)$ the \qt{submatrix} obtained from $A$ by deleting row $i$ and column $j$. If $D$ is an $(n-1)$-linear function, we intuitively define $D_{ij}(A) := D(A(i|j))$.
 \end{definition}
 
 \begin{theorem}[Recursive Construction of Determinants]\label{thm:recursive_det}
@@ -217,7 +217,7 @@ where each of the indices $k_1, \dots, k_n$ runs between $1$ and $n$.
 
 Thus far, we have not used the fact that $D$ is alternating. Because $D$ is alternating, the term $D(\epsilon_{k_1}, \dots, \epsilon_{k_n}) = 0$ whenever two of the indices $k_1, \dots, k_n$ are equal. Thus, we are interested only in ordered sequences $(k_1, \dots, k_n)$ in which $k_i \in \{1, \dots, n\}$ for all $i$, and $k_i \neq k_j$ for all $i \neq j$.
 
-Such a sequence is called a \emph{permutation} of $\{1, \dots, n\}$, or a permutation of degree $n$. Alternatively, we can think of a permutation of degree $n$ as a bijective function $\sigma : \{1, \dots, n\} \to \{1, \dots, n\}$. Then, the sequence $(k_1, \dots, k_n) = (\sigma(1), \sigma(2), \dots, \sigma(n))$ is a permutation as defined earlier. In other words, a permutation of degree $n$ is simply a re-ordering of a list of $n$ elements: $(1, \dots, n) \mapsto (\sigma(1), \dots, \sigma(n))$.
+Such a sequence is called a \qt{permutation} of $\{1, \dots, n\}$, or a permutation of degree $n$. Alternatively, we can think of a permutation of degree $n$ as a bijective function $\sigma : \{1, \dots, n\} \to \{1, \dots, n\}$. Then, the sequence $(k_1, \dots, k_n) = (\sigma(1), \sigma(2), \dots, \sigma(n))$ is a permutation as defined earlier. In other words, a permutation of degree $n$ is simply a re-ordering of a list of $n$ elements: $(1, \dots, n) \mapsto (\sigma(1), \dots, \sigma(n))$.
 
 We can nicely rewrite our expansion of $D(A)$ as:
 \[
@@ -229,7 +229,7 @@ where $\sigma$ runs over all possible permutations of degree $n$.
 
 An important property about permutations is that if $\sigma$ is a permutation of degree $n$, one can pass from the sequence $(1, \dots, n)$ to $(\sigma(1), \dots, \sigma(n))$ by performing a finite sequence of interchanges of pairs.
 
-More precisely, a \emph{transposition} is a permutation $\theta : \{1, \dots, n\} \to \{1, \dots, n\}$ for which there exist $i, j \in \{1, \dots, n\}$ with $i \neq j$ such that $\theta(i) = j$, $\theta(j) = i$, and $\theta(k) = k$ for all $k \neq i,j$.
+More precisely, a \qt{transposition} is a permutation $\theta : \{1, \dots, n\} \to \{1, \dots, n\}$ for which there exist $i, j \in \{1, \dots, n\}$ with $i \neq j$ such that $\theta(i) = j$, $\theta(j) = i$, and $\theta(k) = k$ for all $k \neq i,j$.
 
 Every permutation $\sigma$ can be written as a composition of transpositions:
 \begin{equation} \label{eq:permutation_decomp}
@@ -249,7 +249,7 @@ where $\theta_1, \dots, \theta_m$ are transpositions. However, these $\theta_i$'
 
 In other words, $(-1)^{m'} = (-1)^m$. The parity depends only on the permutation $\sigma$, and not on the particular sequence of transpositions used.
 
-A permutation $\sigma$ is called \emph{even} if $m$ is even, and \emph{odd} if $m$ is odd. The number $\operatorname{sgn}(\sigma) := (-1)^m \in \{-1, 1\}$ is called the \emph{sign} of $\sigma$.
+A permutation $\sigma$ is called \qt{even} if $m$ is even, and \qt{odd} if $m$ is odd. The number $\operatorname{sgn}(\sigma) := (-1)^m \in \{-1, 1\}$ is called the \qt{sign} of $\sigma$.
 
 \begin{proof}[Proof of Lemma]
   We know from previous results that determinant functions $E : M_{n \times n}(K) \to K$ exist for $n \ge 1$. Let us fix one such determinant function $E$ (we denote it by $E$ to distinguish it from $D$ in the previous discussion).
@@ -303,10 +303,8 @@ Denote by $S_n$ the set of permutations $\sigma : \{1, \dots, n\} \to \{1, \dots
 \end{lemma}
 
 \begin{proof}
-  Suppose $\sigma = \theta_1 \circ \cdots \circ \theta_m$ and $\tau = \lambda_1 \circ \cdots \circ \lambda_l$, where the $\theta_i$'s and $\lambda_j$'s are all transpositions. Then, their composition is simply $\sigma \circ \tau = \theta_1 \circ \cdots \circ \theta_m \circ \lambda_1 \circ \cdots \circ \lambda_l$, which explicitly consists of $m + l$ transpositions. Therefore:
   Suppose $\sigma = \theta_1 \circ \cdots \circ \theta_m$ and $\tau = \lambda_1 \circ \cdots \circ \lambda_{\ell}$, where the $\theta_i$'s and $\lambda_j$'s are all transpositions. Then, their composition is simply $\sigma \circ \tau = \theta_1 \circ \cdots \circ \theta_m \circ \lambda_1 \circ \cdots \circ \lambda_{\ell}$, which explicitly consists of $m + \ell$ transpositions. Therefore:
   \[
-  \operatorname{sgn}(\sigma \circ \tau) = (-1)^{m+l} = (-1)^m \cdot (-1)^l = \operatorname{sgn}(\sigma) \cdot \operatorname{sgn}(\tau).
   \operatorname{sgn}(\sigma \circ \tau) = (-1)^{m+\ell} = (-1)^m \cdot (-1)^{\ell} = \operatorname{sgn}(\sigma) \cdot \operatorname{sgn}(\tau).
   \]
 \end{proof}
@@ -514,7 +512,7 @@ The scalars $C_{ij} := (-1)^{i+j} \det A(i|j)$ are called the \emph{$i,j$ cofact
 \end{summary}
 
 \begin{definition*}[Classical Adjoint]\label{def:classical_adjoint}
-  The transpose of the matrix of cofactors, $(C_{ij})^T$, is called the \emph{classical adjoint} (or adjugate) of $A$, denoted $\operatorname{adj} A \in M_{n \times n}(K)$. Explicitly, $(\operatorname{adj} A)_{ij} = C_{ji} = (-1)^{i+j} \det A(j|i)$.
+  The transpose of the matrix of cofactors, $(C_{ij})^T$, is called the \qt{classical adjoint} (or adjugate) of $A$, denoted $\operatorname{adj} A \in M_{n \times n}(K)$. Explicitly, $(\operatorname{adj} A)_{ij} = C_{ji} = (-1)^{i+j} \det A(j|i)$.
 \end{definition*}
 
 Our summary formula above immediately implies the matrix equation:

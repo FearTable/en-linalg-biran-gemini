@@ -28,11 +28,11 @@ Let us try to find a Fibonacci sequence $v \ne 0$ such that $S(v) = \lambda \cdo
 \[ S(v) = \lambda \cdot v \iff \lambda = \frac{1\pm\sqrt{5}}{2} \text{ and } v = (a, a\lambda, a\lambda^2, \dots, a\lambda^n, \dots) \]
 
 \begin{definition}[Eigenvalue and Eigenvector]\label{def:eigenvalue_eigenvector}
-  Let $V$ be a vector space over $K$ and $T: V \rightarrow V$ a linear map (an endomorphism of $V$). We say that $\lambda \in K$ is an eigenvalue (a.k.a. characteristic value) of $T$ if there exists a vector $v \ne 0$ such that $Tv = \lambda v$. Any vector $v \ne 0$ with the property that $Tv = \lambda v$ is called an eigenvector (of $T$) for the eigenvalue $\lambda$.
+  Let $V$ be a vector space over $K$ and $T: V \rightarrow V$ a linear map (an endomorphism of $V$). We say that $\lambda \in K$ is an \qt{eigenvalue} (a.k.a. characteristic value) of $T$ if there exists a vector $v \ne 0$ such that $Tv = \lambda v$. Any vector $v \ne 0$ with the property that $Tv = \lambda v$ is called an \qt{eigenvector} (of $T$) for the eigenvalue $\lambda$.
 \end{definition}
 
 \begin{definition}[Diagonalizable Endomorphism]\label{def:diagonalizable_endomorphism}
-  Let $V$ be a finite-dimensional vector space over $K$ and $T: V \rightarrow V$ a linear map. We say that $T$ is diagonalizable if there exists a basis $\mathcal{B}$ of $V$ such that
+  Let $V$ be a finite-dimensional vector space over $K$ and $T: V \rightarrow V$ a linear map. We say that $T$ is \qt{diagonalizable} if there exists a basis $\mathcal{B}$ of $V$ such that
   \begin{equation} \label{eq:diagonal_form}
     [T]_{\mathcal{B}}^{\mathcal{B}} = \begin{pmatrix} \lambda_1 & \dots & 0 \\ \vdots & \ddots & \vdots \\ 0 & \dots & \lambda_n \end{pmatrix}
   \end{equation}
@@ -109,11 +109,11 @@ Let us try to find a Fibonacci sequence $v \ne 0$ such that $S(v) = \lambda \cdo
 \end{proof}
 
 \begin{definition}[Characteristic Polynomial]\label{def:char_poly}
-  Let $V$ be a finite-dimensional vector space over $K$ and $T: V \rightarrow V$ a linear map. We define the characteristic polynomial of $T$ as $P_T(x) := \det(T - x \cdot \mathrm{id}_V)$ (sometimes denoted $\chi_T(x)$), where $x$ is a formal variable ("in $K$"). We define the characteristic polynomial of a matrix $A \in M_{n \times n}(K)$ in the same way: $P_A(x) := \det(A - x \cdot I_n)$.
+  Let $V$ be a finite-dimensional vector space over $K$ and $T: V \rightarrow V$ a linear map. We define the \qt{characteristic polynomial} of $T$ as $P_T(x) := \det(T - x \cdot \mathrm{id}_V)$ (sometimes denoted $\chi_T(x)$), where $x$ is a formal variable (\qt{in $K$}). We define the \qt{characteristic polynomial} of a matrix $A \in M_{n \times n}(K)$ in the same way: $P_A(x) := \det(A - x \cdot I_n)$.
 \end{definition}
 
 \begin{definition}[Eigenspace]\label{def:eigenspace}
-  Let $V$ be a vector space over $K$ and $T \in \End(V)$. Let $\lambda$ be an eigenvalue of $T$. The eigenspace corresponding to $\lambda$ is defined as:
+  Let $V$ be a vector space over $K$ and $T \in \End(V)$. Let $\lambda$ be an eigenvalue of $T$. The \qt{eigenspace} corresponding to $\lambda$ is defined as:
   \[ \Eig_T(\lambda) := \{v \in V \mid Tv = \lambda v\} = \ker(T - \lambda \cdot \mathrm{id}_V) = \{v \in V \mid v \text{ is an eigenvector of } \lambda\} \cup \{0\}. \]
   Clearly (by this definition), $\Eig_T(\lambda) \subseteq V$ is a linear subspace.
 \end{definition}
@@ -153,7 +153,7 @@ Let us try to find a Fibonacci sequence $v \ne 0$ such that $S(v) = \lambda \cdo
 \end{proof}
 
 \begin{definition}[Trace]\label{def:trace}
-  Let $A \in M_{n \times n}(K)$. Define the trace (German: ``Spur'') of $A$, denoted $\Tr(A) := \sum_{i=1}^n A_{ii} \in K$ (which is the sum of the entries along the diagonal of $A$).
+  Let $A \in M_{n \times n}(K)$. Define the \qt{trace} (German: \qt{Spur}) of $A$, denoted $\Tr(A) := \sum_{i=1}^n A_{ii} \in K$ (which is the sum of the entries along the diagonal of $A$).
   If $V$ is a finite-dimensional vector space over $K$ and $T \in \End(V)$, define $\Tr(T) := \Tr([T]_{\mathcal{B}}^{\mathcal{B}})$, where $\mathcal{B}$ is some basis for $V$. We will see soon that $\Tr(T)$ is well defined (i.e., it does not depend on the choice of $\mathcal{B}$).
 \end{definition}
 
@@ -197,7 +197,7 @@ Let $A \in M_{n \times n}(K)$ and $P_A(x) = c_n x^n + c_{n-1} x^{n-1} + \dots + 
 \end{proof}
 
 \begin{definition}[Direct Sum]\label{def:direct_sum}
-  Let $V$ be a vector space over $K$ and $U_1, \dots, U_r \subseteq V$ subspaces. Denote $W := U_1 + \dots + U_r \subseteq V$. We say that $W$ is a direct sum of $U_1, \dots, U_r$ (or that $U_1 + \dots + U_r$ is a direct sum) if every $w \in W$ has a unique representation as $w = u_1 + \dots + u_r$, with $u_i \in U_i$ for all $i$.
+  Let $V$ be a vector space over $K$ and $U_1, \dots, U_r \subseteq V$ subspaces. Denote $W := U_1 + \dots + U_r \subseteq V$. We say that $W$ is a \qt{direct sum} of $U_1, \dots, U_r$ (or that $U_1 + \dots + U_r$ is a \qt{direct sum}) if every $w \in W$ has a unique representation as $w = u_1 + \dots + u_r$, with $u_i \in U_i$ for all $i$.
 \end{definition}
 
 \begin{exercise}\label{ex:direct_sum_conditions}
@@ -311,17 +311,17 @@ We say that $\lambda$ is a \textbf{zero} of $p(x)$ (De: Nullstelle), or a \textb
 Sometimes, $\lambda$ is also a zero of $q(x)$, so $q(x) = (x-\lambda) \cdot h(x)$, which implies $p(x) = (x-\lambda)^2 \cdot h(x)$, etc.
 
 \begin{definition}[Multiplicity of a Zero] \label{def:mult_zero}
-  We say that $\lambda$ is a zero of \textbf{multiplicity} $m \in \mathbb{N}_{>0}$ if $p(x) = (x-\lambda)^m \cdot g(x)$, where $g(x) \in K[x]$ and $g(\lambda) \ne 0$ (i.e., $\lambda$ is not a zero of $g(x)$).
-  If $m=1$, we say $\lambda$ is a \textbf{simple zero} of $p(x)$.
-  If $m \ge 2$, we say $\lambda$ is a \textbf{multiple zero} of $p(x)$.
+  We say that $\lambda$ is a zero of \qt{multiplicity} $m \in \mathbb{N}_{>0}$ if $p(x) = (x-\lambda)^m \cdot g(x)$, where $g(x) \in K[x]$ and $g(\lambda) \ne 0$ (i.e., $\lambda$ is not a zero of $g(x)$).
+  If $m=1$, we say $\lambda$ is a \qt{simple zero} of $p(x)$.
+  If $m \ge 2$, we say $\lambda$ is a \qt{multiple zero} of $p(x)$.
 \end{definition}
 
 \subsection{Geometric \& Algebraic Multiplicity of Eigenvalues}
 
 \begin{definition}[Geometric and Algebraic Multiplicity] \label{def:geom_alg_mult}
-  Let $V$ be a vector space over $K$ and $T \in \End(V)$. Let $\lambda$ be an eigenvalue of $T$. We define the \textbf{geometric multiplicity} of $\lambda$ to be:
+  Let $V$ be a vector space over $K$ and $T \in \End(V)$. Let $\lambda$ be an eigenvalue of $T$. We define the \qt{geometric multiplicity} of $\lambda$ to be:
   \[ m_g(T;\lambda) := \dim \Eig_T(\lambda). \]
-  Assume now, in addition, that $V$ is finite-dimensional. We define the \textbf{algebraic multiplicity} of $\lambda$ to be the multiplicity of the zero $\lambda$ in the characteristic polynomial $P_T(x)$ of $T$. We denote it by $m_a(T;\lambda)$.
+  Assume now, in addition, that $V$ is finite-dimensional. We define the \qt{algebraic multiplicity} of $\lambda$ to be the multiplicity of the zero $\lambda$ in the characteristic polynomial $P_T(x)$ of $T$. We denote it by $m_a(T;\lambda)$.
 \end{definition}
 
 \begin{proposition}[Multiplicity Inequality] \label{prop:mult_inequality}
@@ -424,7 +424,7 @@ Sometimes, $\lambda$ is also a zero of $q(x)$, so $q(x) = (x-\lambda) \cdot h(x)
 \end{itemize}
 
 \begin{definition}[Trigonalizable Endomorphism] \label{def:trigonalizable}
-  We say that $T \in \End(V)$ is trigonalizable if there exists a basis $\mathcal{B}$ for $V$ such that $[T]_{\mathcal{B}}^{\mathcal{B}}$ is upper triangular, i.e.,
+  We say that $T \in \End(V)$ is \qt{trigonalizable} if there exists a basis $\mathcal{B}$ for $V$ such that $[T]_{\mathcal{B}}^{\mathcal{B}}$ is upper triangular, i.e.,
   \begin{equation} \label{eq:upper_triangular_def}
     [T]_{\mathcal{B}}^{\mathcal{B}} = \begin{pmatrix} \lambda_1 & \dots & * \\ 0 & \ddots & \vdots \\ 0 & \dots & \lambda_n \end{pmatrix} \quad (n = \dim V).
   \end{equation}
@@ -606,7 +606,7 @@ A natural question arises: can we find a polynomial that completely "kills" or a
 A similar logic applies seamlessly to any abstract operator $T \in \End(V)$, where $V$ is a finite-dimensional vector space over $K$, defining $g(T) := a_d T^d + \dots + a_1 T + a_0 \id_V$. Since annihilating polynomials exist, it is mathematically fruitful to look for the "simplest" one, which acts as a sort of algebraic DNA for the operator.
 
 \begin{definition}[The Minimal Polynomial]\label{def:minimal_poly}
-  Let $V$ be a vector space over $K$ and $T \in \End(V)$. A \textbf{minimal polynomial} for $T$ is a non-zero, monic polynomial $m_T(x) \in K[x]$ of the minimal possible degree such that $m_T(T) = 0$.
+  Let $V$ be a vector space over $K$ and $T \in \End(V)$. A \qt{minimal polynomial} for $T$ is a non-zero, monic polynomial $m_T(x) \in K[x]$ of the minimal possible degree such that $m_T(T) = 0$.
 \end{definition}
 
 While the minimal polynomial guarantees that an operator satisfies \textit{some} polynomial equation, one of the most celebrated theorems in mathematics provides a canonical polynomial that always works: the characteristic polynomial.
@@ -713,7 +713,7 @@ To generalize this result from $\mathbb{C}$ to any arbitrary field $K$, we rely 
 While the analytic proof is mathematically beautiful, it relies on topological machinery (limits and continuity) that feels slightly alien in pure algebra. Let us now construct a purely structural, algebraic proof using invariant subspaces.
 
 \begin{definition}[$T$-Cyclic Subspace]\label{def:T_cyclic_subspace}
-  Let $V$ be a vector space over $K$ and $T \in \End(V)$. Let $v \in V$. We define the \textbf{$T$-cyclic subspace} generated by $v$ as the span of the orbit of $v$ under $T$:
+  Let $V$ be a vector space over $K$ and $T \in \End(V)$. Let $v \in V$. We define the \qt{$T$-cyclic subspace} generated by $v$ as the span of the orbit of $v$ under $T$:
   \[
   \langle v \rangle_T := \operatorname{Sp}\{T^k v \mid k \in \mathbb{Z}_{\ge 0}\} = \operatorname{Sp}(v, Tv, T^2v, \dots).
   \]
