@@ -57,14 +57,14 @@ Therefore, $\alpha \cdot (T_1 + T_2) = \alpha \cdot T_1 + \alpha \cdot T_2$.
   Recall that $T_{[T]_{\mathcal{C}}^{\mathcal{B}}} = \Phi_{\mathcal{C}} \circ T \circ \Phi_{\mathcal{B}}^{-1}$. Recall also that $\Phi_{\mathcal{B}}(v) = [v]_{\mathcal{B}} \in K^n$ for all $v \in V$. Furthermore, $\Phi_{\mathcal{C}}(w) = [w]_{\mathcal{C}} \in K^m$ for all $w \in W$. We have
   \[ \Phi_{\mathcal{B}}^{-1} \begin{pmatrix} a_1 \\ \vdots \\ a_n \end{pmatrix} = a_1 v_1 + \dots + a_n v_n, \quad \Phi_{\mathcal{C}}^{-1} \begin{pmatrix} b_1 \\ \vdots \\ b_m \end{pmatrix} = b_1 w_1 + \dots + b_m w_m. \]
 
-  We claim that the map $\Psi_{\mathcal{C}}^{\mathcal{B}}$ is bijective. Indeed, define $\Theta \colon M_{m \times n}(K) \to \Hom(V,W)$ by $\Theta(A) := \Phi_{\mathcal{C}}^{-1} \circ T_A \circ \Phi_{\mathcal{B}} \in \Hom(V,W)$ for $A \in M_{m \times n}(K)$. We have:
+  We claim that the map $\Psi_{\mathcal{C}}^{\mathcal{B}}$ is bijective. Indeed, define $\Theta \colon \M_{m \times n}(K) \to \Hom(V,W)$ by $\Theta(A) := \Phi_{\mathcal{C}}^{-1} \circ T_A \circ \Phi_{\mathcal{B}} \in \Hom(V,W)$ for $A \in \M_{m \times n}(K)$. We have:
   \begin{align*}
     \Psi_{\mathcal{C}}^{\mathcal{B}} \circ \Theta(A) &= \Psi_{\mathcal{C}}^{\mathcal{B}}(\Phi_{\mathcal{C}}^{-1} \circ T_A \circ \Phi_{\mathcal{B}}) \\
     &= \left( [\Phi_{\mathcal{C}}^{-1} \circ T_A \circ \Phi_{\mathcal{B}}(v_1)]_{\mathcal{C}} \dots [\Phi_{\mathcal{C}}^{-1} \circ T_A \circ \Phi_{\mathcal{B}}(v_n)]_{\mathcal{C}} \right) \\
     &= \begin{pmatrix} | & & | \\ T_A \Phi_{\mathcal{B}}(v_1) & \dots & T_A \Phi_{\mathcal{B}}(v_n) \\ | & & | \end{pmatrix} \\
     &= \begin{pmatrix} | & & | \\ T_A(e_1) & \dots & T_A(e_n) \\ | & & | \end{pmatrix} = A.
   \end{align*}
-  This uses the facts that $[\Phi_{\mathcal{C}}^{-1}(b)]_{\mathcal{C}} = b$ for all $b \in K^m$, and $\Phi_{\mathcal{B}}(v_k) = e_k$. This proves that $\Psi_{\mathcal{C}}^{\mathcal{B}} \circ \Theta = \id_{M_{m \times n}(K)}$.
+  This uses the facts that $[\Phi_{\mathcal{C}}^{-1}(b)]_{\mathcal{C}} = b$ for all $b \in K^m$, and $\Phi_{\mathcal{B}}(v_k) = e_k$. This proves that $\Psi_{\mathcal{C}}^{\mathcal{B}} \circ \Theta = \id_{\M_{m \times n}(K)}$.
 
   Now, by definition, $\Theta \circ \Psi_{\mathcal{C}}^{\mathcal{B}}(T) = \Phi_{\mathcal{C}}^{-1} \circ T_{\Psi_{\mathcal{C}}^{\mathcal{B}}(T)} \circ \Phi_{\mathcal{B}} = \Phi_{\mathcal{C}}^{-1} \circ T_{[T]_{\mathcal{C}}^{\mathcal{B}}} \circ \Phi_{\mathcal{B}} = T$. This shows that $\Theta \circ \Psi_{\mathcal{C}}^{\mathcal{B}} = \id_{\Hom(V,W)}$. Therefore, $\Psi_{\mathcal{C}}^{\mathcal{B}}$ is bijective.
 
@@ -92,7 +92,7 @@ Therefore, $\alpha \cdot (T_1 + T_2) = \alpha \cdot T_1 + \alpha \cdot T_2$.
   \begin{enumerate}
     \item Every field $K$ is also a commutative ring.
     \item $\mathbb{Z}$ is a commutative ring.
-    \item $M_{n \times n}(K)$ is a ring, where $A \cdot B$ is matrix multiplication, and the unity is $I_n$. Clearly, it is not commutative.
+    \item $\M_{n \times n}(K)$ is a ring, where $A \cdot B$ is matrix multiplication, and the unity is $I_n$. Clearly, it is not commutative.
   \end{enumerate}
 \end{example}
 
@@ -130,7 +130,7 @@ Therefore, $\alpha \cdot (T_1 + T_2) = \alpha \cdot T_1 + \alpha \cdot T_2$.
   \end{enumerate}
   Thus, $\End(V)$ is a ring with unity $\id_V$. It is generally not commutative, as demonstrated by matrix multiplication.
 
-  Now, assume $V$ is finite-dimensional with $\dim V = n$, and let $\mathcal{B}$ be a basis for $V$. We have already established that $\Psi_{\mathcal{B}}^{\mathcal{B}} \colon \End(V) \to M_{n \times n}(K)$ is a linear isomorphism. To prove it is a ring isomorphism, we must show it preserves the multiplicative structure and the multiplicative identity.
+  Now, assume $V$ is finite-dimensional with $\dim V = n$, and let $\mathcal{B}$ be a basis for $V$. We have already established that $\Psi_{\mathcal{B}}^{\mathcal{B}} \colon \End(V) \to \M_{n \times n}(K)$ is a linear isomorphism. To prove it is a ring isomorphism, we must show it preserves the multiplicative structure and the multiplicative identity.
 
   \begin{enumerate}
     \item \textbf{Preservation of Multiplication}: For any $T_1, T_2 \in \End(V)$, a fundamental result from Linear Algebra I states that the matrix representation of a composition of linear maps is the product of their matrix representations. That is,
