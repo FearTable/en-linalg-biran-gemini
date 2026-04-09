@@ -102,7 +102,7 @@ Let us try to find a Fibonacci sequence $\mathcal{F} \ne 0$ such that $S(\mathca
 \end{proposition}
 
 \begin{proof}
-  $\iff \exists 0 \ne v \in V$ such that $Tv - \lambda v = 0 \iff \exists 0 \ne v \in V$ such that $(T - \lambda \cdot \id_V)v = 0 \iff \ker(T - \lambda \cdot \id_V) \ne \{0\}$.
+  The scalar $\lambda$ is an eigenvalue if and only if there exists a non-zero vector $v \in V$ such that $Tv - \lambda v = 0$. This is equivalent to stating that $(T - \lambda \cdot \id_V)v = 0$, which implies that $\ker(T - \lambda \cdot \id_V) \ne \{0\}$.
   This implies that $T - \lambda \cdot \id_V$ is not injective.
 \end{proof}
 \begin{definition}[Characteristic Polynomial]\label{def:char_poly}
@@ -146,7 +146,7 @@ Let us try to find a Fibonacci sequence $\mathcal{F} \ne 0$ such that $S(\mathca
 \end{proof}
 
 \begin{remark}\label{rem:char_poly_degree}
-  If $V$ is an $n$-dimensional vector space over $K$ and $T \in \End(V)$, then $P_T(x)$ is a polynomial of degree $n$ with leading coefficient $(-1)^n$.
+  If $V$ is an $n$-di\-men\-sional vector space over $K$ and $T \in \End(V)$, then $P_T(x)$ is a polynomial of degree $n$ with leading coefficient $(-1)^n$.
 \end{remark}
 \begin{proof}
   Let $\mathcal{B}$ be a basis for $V$. Then $[T - x \cdot \id_V]_{\mathcal{B}}^{\mathcal{B}} = [T]_{\mathcal{B}}^{\mathcal{B}} - x \cdot I_n$. This implies that $P_T(x) = \det([T - x \cdot \id_V]_{\mathcal{B}}^{\mathcal{B}}) = \det([T]_{\mathcal{B}}^{\mathcal{B}} - x \cdot I_n) = P_{[T]_{\mathcal{B}}^{\mathcal{B}}}(x)$. The claim of the remark now follows from \textbf{(a)} of Lemma \ref{lem:properties_char_poly}.
@@ -160,7 +160,7 @@ Let us try to find a Fibonacci sequence $\mathcal{F} \ne 0$ such that $S(\mathca
 \begin{lemma}[Properties of Trace]\label{lem:properties_trace}
   For all $A, B \in M_{n \times n}(K)$, we have:
   \begin{enumerate}
-    \item[\textbf{(a)}] $\Tr(A \cdot B) = \Tr(B \cdot A)$
+    \item[\textbf{(a)}] $\Tr(A \cdot B) = \Tr(B \cdot A)$.
     \item[\textbf{(b)}] If $A$ and $B$ are similar matrices, then $\Tr(A) = \Tr(B).$
   \end{enumerate}
   In particular, if $\mathcal{B}$ and $\mathcal{B}'$ are two bases for $V$, then $\Tr([T]_{\mathcal{B}}^{\mathcal{B}}) = \Tr([T]_{\mathcal{B}'}^{\mathcal{B}'})$. Thus, $\Tr(T)$ is well defined.
@@ -214,7 +214,7 @@ Let $A \in M_{n \times n}(K)$ and $P_A(x) = c_n x^n + c_{n-1} x^{n-1} + \dots + 
 \end{exercise}
 
 \begin{proposition}[Direct Sum of Eigenspaces]\label{prop:direct_sum_eigenspaces}
-  Let $V$ be a vector space over $K$ and $T \in \End(V)$. Let $\lambda_1, \dots, \lambda_r \in K$ be pairwise distinct eigenvalues of $T$. Then $\Eig_T(\lambda_1) + \dots + \Eig_T(\lambda_r)$ is a direct sum.
+  Let $V$ be a vector space over $K$ and $T \in \End(V)$. Let $\lambda_1, \dots, \lambda_r \in K$ be pairwise distinct eigenvalues of $T$. Then the sum $\Eig_T(\lambda_1) + \dots + \Eig_T(\lambda_r)$ is a direct sum.
 \end{proposition}
 
 \begin{proof}
@@ -322,12 +322,12 @@ Sometimes, $\lambda$ is also a zero of $q(x)$, so $q(x) = (x-\lambda) \cdot h(x)
 \begin{definition}[Geometric and Algebraic Multiplicity] \label{def:geom_alg_mult}
   Let $V$ be a vector space over $K$ and $T \in \End(V)$. Let $\lambda$ be an eigenvalue of $T$. We define the \qt{geometric multiplicity} of $\lambda$ to be:
   \[ m_g(T;\lambda) := \dim \Eig_T(\lambda). \]
-  Assume now, in addition, that $V$ is finite-dimensional. We define the \qt{algebraic multiplicity} of $\lambda$ to be the multiplicity of the zero $\lambda$ in the characteristic polynomial $P_T(x)$ of $T$. We denote it by $m_a(T;\lambda)$.
+  Assume now, in addition, that $V$ is finite-di\-men\-sional. We define the \qt{algebraic multiplicity} of $\lambda$ to be the multiplicity of the zero $\lambda$ in the characteristic polynomial $P_T(x)$ of $T$. We denote it by $m_a(T;\lambda)$.
 \end{definition}
 
 \begin{proposition}[Multiplicity Inequality] \label{prop:mult_inequality}
   For any eigenvalue $\lambda$, the geometric multiplicity is less than or equal to the algebraic multiplicity:
-  \[ m_g(T;\lambda) \le m_a(T;\lambda). \]
+  \[ m_g(T; \lambda) \le m_a(T; \lambda). \]
 \end{proposition}
 
 \begin{proof}
@@ -337,7 +337,7 @@ Sometimes, $\lambda$ is also a zero of $q(x)$, so $q(x) = (x-\lambda) \cdot h(x)
   \begin{equation} \label{eq:block_matrix_T}
     [T]_{\mathcal{B}}^{\mathcal{B}} = \left(\begin{array}{c|c} \lambda I_k & C_1 \\ \hline 0 & C \end{array}\right)
   \end{equation}
-  where $C \in M_{(n-k) \times (n-k)}(K)$.
+  where $C \in \M_{(n-k) \times (n-k)}(K)$.
   We compute the characteristic polynomial by utilizing the determinant property for block matrices (as established in previous sections):
   \[ P_T(x) = \det([T]_{\mathcal{B}}^{\mathcal{B}} - x \cdot I_n) = (\lambda - x)^k \cdot \det(C - x I_{n-k}) \]
   \[ P_T(x) = (\lambda - x)^k \cdot P_C(x) = (-1)^k(x - \lambda)^k \cdot P_C(x). \]
@@ -432,7 +432,7 @@ Sometimes, $\lambda$ is also a zero of $q(x)$, so $q(x) = (x-\lambda) \cdot h(x)
 \end{definition}
 
 \begin{theorem}[Trigonalizability Condition] \label{thm:trig_condition}
-  Let $V$ be a finite-dimensional vector space over $K$ and $T \in \End(V)$. Then $T$ is trigonalizable if and only if $P_T(x)$ splits as a product of linear factors, i.e., $P_T(x) = (\lambda_1 - x)^{\ell_1} \dots (\lambda_k - x)^{\ell_k}$.
+  Let $V$ be a finite-di\-men\-sional vector space over $K$ and $T \in \End(V)$. Then $T$ is trigonalizable if and only if $P_T(x)$ splits as a product of linear factors, i.e., $P_T(x) = (\lambda_1 - x)^{\ell_1} \dots (\lambda_k - x)^{\ell_k}$.
 \end{theorem}
 
 \subsection*{Short Digression}
@@ -443,7 +443,7 @@ Sometimes, $\lambda$ is also a zero of $q(x)$, so $q(x) = (x-\lambda) \cdot h(x)
 \end{theorem}
 
 \begin{remark}\label{rem:fta_proof}
-  The proof is typically covered in an analysis course or complex analysis in the third semester.
+  The proof is typically covered in an analysis course or a complex analysis course in the third semester.
 \end{remark}
 
 \begin{corollary}[Trigonalizability over $\mathbb{C}$]\label{cor:complex_trigonalizable}
@@ -470,7 +470,7 @@ Sometimes, $\lambda$ is also a zero of $q(x)$, so $q(x) = (x-\lambda) \cdot h(x)
   \begin{equation} \label{eq:M_block}
     [T]_{\mathcal{B}'}^{\mathcal{B}'} = \left(\begin{array}{c|c} \lambda_1 & * \dots * \\ \hline 0 & \\ \vdots & A \\ 0 & \end{array}\right) =: M
   \end{equation}
-  where $A$ is an $n \times n$ matrix.
+  where $A$ is an $n \times n$ matrix in $\M_{n \times n}(K)$.
   By block determinant properties, we have $P_T(x) = (\lambda_1 - x) \cdot P_A(x)$.
   Since $P_T(x)$ splits as a product of linear factors, so does $P_A(x)$.
 
