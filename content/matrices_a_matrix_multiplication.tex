@@ -1,3 +1,7 @@
+% Overriding the theorem counter for this chapter to match the 15.0.1, 15.0.2 convention
+\renewcommand{\thetheorem}{\arabic{chapter}.\alph{section}.\arabic{theorem}}
+\setcounter{chapter}{14} % Sets chapter counter so the current chapter is 15
+
 \setcounter{chapter}{16}
 \chapter{Matrices}
 
@@ -195,19 +199,42 @@ Which directly gives us $(A + B) \cdot C = A \cdot C + B \cdot C$. The other dis
 \end{equation*}
 This implies that $I_m \cdot A = A$. The proof for $A I_n = A$ follows the same logic.
 
-\textbf{Preparation for (d):} Let $V$ be a finite-dimensional vector space over $K$, let $\alpha \in K$, and let $\mathcal{B}$ be a basis for $V$. Consider the map $Q: V \to V$ defined by $Q(w) := \alpha \cdot w$. Then, $Q$ is linear, and moreover, we have $[Q]_{\mathcal{B}}^{\mathcal{B}} = \alpha \cdot I_n$, where $n = \dim V$. Explicitly, this is:
-\begin{equation*}
-    [Q]_{\mathcal{B}}^{\mathcal{B}} = \begin{pmatrix} \alpha & & 0 \\ & \ddots & \\ 0 & & \alpha \end{pmatrix}
-\end{equation*}
-The completion of the proof for statement (d) is left as an exercise.
+\textbf{Proof of (d):} Let $T_A: K^n \to K^m$ and $T_B: K^p \to K^n$ be the linear maps associated with $A$ and $B$, respectively. We want to show that $\alpha(AB) = (\alpha A)B = A(\alpha B)$. This is equivalent to showing that the corresponding linear maps are equal.
+
+First, consider the map $Q: K^n \to K^n$ defined by $Q(v) := \alpha v$. This map is linear. If $\mathcal{E}_n$ is the standard basis for $K^n$, then for any $e_j \in \mathcal{E}_n$, $Q(e_j) = \alpha e_j$. Thus, the matrix representation of $Q$ with respect to $\mathcal{E}_n$ is $[Q]_{\mathcal{E}_n}^{\mathcal{E}_n} = \alpha I_n$.
+
+Now, let's look at the compositions:
+\begin{itemize}
+    \item The linear map corresponding to $(\alpha A)B$ is $T_{\alpha A} \circ T_B$. We know that $T_{\alpha A}(v) = (\alpha A)v = \alpha(Av) = \alpha T_A(v)$, so $T_{\alpha A} = \alpha T_A$. Thus, $T_{(\alpha A)B} = (\alpha T_A) \circ T_B$.
+    \item The linear map corresponding to $A(\alpha B)$ is $T_A \circ T_{\alpha B}$. Similarly, $T_{\alpha B} = \alpha T_B$. Thus, $T_{A(\alpha B)} = T_A \circ (\alpha T_B)$.
+\end{itemize}
+
+We need to show that $(\alpha T_A) \circ T_B = T_A \circ (\alpha T_B)$. For any $v \in K^p$:
+\begin{align*}
+    ((\alpha T_A) \circ T_B)(v) &= (\alpha T_A)(T_B(v)) \\
+    &= \alpha (T_A(T_B(v))) \quad (\text{by definition of scalar multiplication for maps})
+\end{align*}
+And for the other side:
+\begin{align*}
+    (T_A \circ (\alpha T_B))(v) &= T_A((\alpha T_B)(v)) \\
+    &= T_A(\alpha (T_B(v))) \quad (\text{by definition of scalar multiplication for maps}) \\
+    &= \alpha (T_A(T_B(v))) \quad (\text{by linearity of } T_A)
+\end{align*}
+Since both compositions yield the same result, the corresponding matrices are equal: $(\alpha A)B = A(\alpha B)$.
+
+Finally, to show $\alpha(AB) = (\alpha A)B$:
+The matrix $\alpha(AB)$ corresponds to the linear map $\alpha(T_A \circ T_B)$.
+The matrix $(\alpha A)B$ corresponds to the linear map $(\alpha T_A) \circ T_B$.
+We have already shown that $(\alpha T_A) \circ T_B = \alpha (T_A \circ T_B)$ (from the first part of the derivation above).
+Therefore, $\alpha(AB) = (\alpha A)B$.
 \end{proof}
 
 \begin{exercise}
-Prove the preparation claim, and complete the proof for statement (d) of Proposition \ref{prop:matrix_multiplication_properties}.
+The proof for statement (d) of Proposition \ref{prop:matrix_multiplication_properties} relies on the properties of scalar multiplication of linear maps. You are encouraged to verify these properties.
 \end{exercise}
 
 \begin{remark}
-One could also prove the Proposition by direct, tedious calculation. You are encouraged to try it, for example for $(AB)C = A(BC)$, to see that it is not very pleasant.
+In the space $\M_{n \times n}(K)$, we can add and subtract matrices, and we can also multiply matrices. There is additionally a multiplicative unit $I_n$. Because these operations satisfy associativity, distributivity, and other relevant axioms, it follows that $\M_{n \times n}(K)$ forms a (non-com\-mu\-ta\-tive) ring with a unity.
 \end{remark}
 
 \begin{importantremark}
@@ -339,7 +366,22 @@ We apply this equality for the standard basis vectors $w = e_1, w = e_2, \dots, 
 \begin{exercise}
 \begin{enumerate}
     \item Let $A \in \M_{m \times n}(K)$ and $B \in \M_{n \times p}(K)$. Prove that $(AB)^T = B^T \cdot A^T$. \newline (\textit{Hint: Proving this by direct calculation is not so bad.})
+    \begin{proof}[Proof Sketch]
+    Let $A = (a_{ij})$ and $B = (b_{jk})$. Let $C = AB = (c_{ik})$. Then $c_{ik} = \sum_{\ell=1}^n a_{i\ell} b_{\ell k}$.
+    The $(i,k)$-th entry of $(AB)^T$ is $c_{ki} = \sum_{\ell=1}^n a_{k\ell} b_{\ell i}$.
+    Now consider $B^T = (b'_{k\ell})$ where $b'_{k\ell} = b_{\ell k}$, and $A^T = (a'_{\ell i})$ where $a'_{\ell i} = a_{i\ell}$.
+    The $(i,k)$-th entry of $B^T A^T$ is $\sum_{\ell=1}^n b'_{i\ell} a'_{\ell k} = \sum_{\ell=1}^n b_{\ell i} a_{k\ell}$.
+    This is exactly $c_{ki}$, thus $(AB)^T = B^T A^T$.
+    \end{proof}
     \item Let $A \in \GL_n(K)$. Prove that $A^T \in \GL_n(K)$ and that $(A^T)^{-1} = (A^{-1})^T$.
+    \begin{proof}[Proof Sketch]
+    For the first part, recall that $\det(A^T) = \det(A)$. Since $A \in \GL_n(K)$, we know $\det(A) \neq 0$, which implies $\det(A^T) \neq 0$, and thus $A^T \in \GL_n(K)$.
+    For the second part, we need to show that $A^T (A^{-1})^T = I_n$ and $(A^{-1})^T A^T = I_n$. Using the result from part (1):
+    \[ A^T (A^{-1})^T = (A^{-1}A)^T = I_n^T = I_n. \]
+    Similarly,
+    \[ (A^{-1})^T A^T = (AA^{-1})^T = I_n^T = I_n. \]
+    This confirms that $(A^{-1})^T$ is indeed the inverse of $A^T$.
+    \end{proof}
 \end{enumerate}
 \end{exercise}
 
@@ -364,5 +406,18 @@ Let $A$ and $B$ be two diagonal matrices (respectively, both upper triangular, o
 \end{lemma}
 
 \begin{proof}
-\textit{Exercise.}
+  Exercise: Let $A = (a_{ij})$ and $B = (b_{ij})$ be two upper triangular matrices. This means $a_{ij} = 0$ for $i > j$ and $b_{ij} = 0$ for $i > j$.
+  Let $C = AB = (c_{ij})$. We want to show that $c_{ij} = 0$ for $i > j$.
+  The entry $c_{ij}$ is given by the sum $c_{ij} = \sum_{k=1}^n a_{ik} b_{kj}$.
+
+  Consider $c_{ij}$ where $i > j$. For each term $a_{ik} b_{kj}$ in the sum:
+  \begin{itemize}
+    \item If $k < i$: For $a_{ik}$ to be non-zero, $k$ must be less than or equal to $i$. If $k > j$, then $b_{kj}$ must be zero (since $B$ is upper triangular).
+    \item If $k \ge i$: Since $i > j$, we have $k > j$. This implies $b_{kj} = 0$ (since $B$ is upper triangular).
+  \end{itemize}
+  More precisely, for $c_{ij}$ with $i > j$, we have $a_{ik} = 0$ for all $k < i$ such that $k < i$ is false (i.e., $k \ge i$), and $b_{kj} = 0$ for all $k > j$.
+  Thus, in the sum $\sum_{k=1}^n a_{ik} b_{kj}$, if $k < i$, then $a_{ik}$ can be non-zero. But if $k > j$, $b_{kj}$ is zero. So we only need to consider $k \le j$.
+  However, if $k \le j$ and $i > j$, then $i > k$. This means $a_{ik} = 0$ for all $k \le j$.
+  Therefore, every term $a_{ik}b_{kj}$ in the sum must be zero when $i > j$. Hence, $c_{ij} = 0$ for $i > j$, and $C$ is upper triangular.
+  The proofs for diagonal and lower triangular matrices follow similar logic.
 \end{proof}

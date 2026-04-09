@@ -32,7 +32,6 @@ Let us try to find a Fibonacci sequence $v \ne 0$ such that $S(v) = \lambda \cdo
 \end{definition}
 
 \begin{definition}[Diagonalizable Endomorphism]\label{def:diagonalizable_endomorphism}
-  Let $V$ be a finite-di\-men\-sional vector space over $K$ and $T: V \rightarrow V$ a linear map. We say that $T$ is \qt{diagonalizable} if there exists a basis $\mathcal{B}$ of $V$ such that
   \begin{equation} \label{eq:diagonal_form}
     [T]_{\mathcal{B}}^{\mathcal{B}} = \begin{pmatrix} \lambda_1 & \dots & 0 \\ \vdots & \ddots & \vdots \\ 0 & \dots & \lambda_n \end{pmatrix}
   \end{equation}
@@ -237,7 +236,8 @@ Let $A \in M_{n \times n}(K)$ and $P_A(x) = c_n x^n + c_{n-1} x^{n-1} + \dots + 
 \end{proof}
 
 \begin{corollary}[Diagonalizability via Eigenspaces]\label{cor:diagonalizability_eigenspaces}
-  Assume $V$ is finite-dimensional, $T \in \End(V)$, and let $\lambda_1, \dots, \lambda_r$ be all the eigenvalues of $T$. Then $T$ is diagonalizable if and only if $\sum_{i=1}^r \dim \Eig_T(\lambda_i) = \dim V$.
+  Let $V$ be finite-di\-men\-sional (over $K$) and $T \in \End(V)$ with distinct eigenvalues $\lambda_1, \dots, \lambda_r \in K$. Then, $T$ is diagonalizable if and only if the dimensions of its eigenspaces sum to $\dim V$:
+  \[ \sum_{i=1}^r \dim \Eig_T(\lambda_i) = \dim V. \]
 \end{corollary}
 
 \begin{exercise}\label{ex:finite_eigenvalues}
@@ -382,7 +382,7 @@ Sometimes, $\lambda$ is also a zero of $q(x)$, so $q(x) = (x-\lambda) \cdot h(x)
     \end{array} \right)
   \end{equation}
   where $\mathcal{B} = (v_1^{(1)}, \dots, v_{\ell_1}^{(1)}, v_1^{(2)}, \dots, v_{\ell_2}^{(2)}, \dots, v_1^{(k)}, \dots, v_{\ell_k}^{(k)})$.
-  Here $\lambda_1, \dots, \lambda_k$ are the eigenvalues of $T$ (with $\lambda_i \ne \lambda_j$ for all $i \ne j$) and $v_1^{(i)}, \dots, v_{\ell_i}^{(i)}$ are eigenvectors of $\lambda_i$ for all $i$. The characteristic polynomial is:
+  Here, $\lambda_1, \dots, \lambda_k$ are the eigenvalues of $T$ (with $\lambda_i \ne \lambda_j$ for all $i \ne j$) and $v_1^{(i)}, \dots, v_{\ell_i}^{(i)}$ are eigenvectors of $\lambda_i$ for all $i$. The characteristic polynomial is:
   \begin{equation} \label{eq:char_poly_splits}
     P_T(x) = \det([T]_{\mathcal{B}}^{\mathcal{B}} - x \cdot I_n) = (\lambda_1 - x)^{\ell_1} \cdot \dots \cdot (\lambda_k - x)^{\ell_k}.
   \end{equation}

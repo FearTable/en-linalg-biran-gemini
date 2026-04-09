@@ -8,7 +8,7 @@
 
 \renewcommand{\thetheorem}{\thechapter.\arabic{theorem}}
 
-In this lecture, we will assume all vector spaces to be \qt{finite-dimensional} unless otherwise stated. We will write bases of a vector space $V$ as an ordered list (or tuple) $\mathcal{B} = (v_1, \dots, v_n)$.
+In this lecture, we will assume all vector spaces to be \qt{finite-di\-men\-sional} unless otherwise stated. We will write bases of a vector space $V$ as an ordered list (or tuple) $\mathcal{B} = (v_1, \dots, v_n)$.
 
 % def:16.1
 \begin{definition}[Coordinate Vector]
@@ -207,7 +207,7 @@ T(v_j) = a_{1j} w_1 + \dots + a_{mj} w_m = \sum_{i=1}^m a_{ij} w_i.
 % prop:16.4
 \begin{proposition}[Evaluation via Representation Matrix]
 \label{prop:matrix_evaluation}
-Let $T: V \to W$ be a linear map between two finite-dimensional vector spaces $V$ and $W$. Let $\mathcal{B}$ and $\mathcal{C}$ be bases for $V$ and $W$, respectively. Then, for all $v \in V$:
+Let $T: V \to W$ be a linear map between two finite-di\-men\-sional vector spaces $V$ and $W$. Let $\mathcal{B}$ and $\mathcal{C}$ be bases for $V$ and $W$, respectively. Then, for all $v \in V$:
 \[
 [T]_{\mathcal{C}}^{\mathcal{B}} \cdot [v]_{\mathcal{B}} = [T(v)]_{\mathcal{C}}.
 \]
@@ -311,4 +311,3 @@ where the matrix dimensions follow $(p \times m) \cdot (m \times n) = (p \times 
 
 In order to obtain $[S \circ T]_{\mathcal{C}}^{\mathcal{A}}$ from $[T]_{\mathcal{B}}^{\mathcal{A}}$ and $[S]_{\mathcal{C}}^{\mathcal{B}}$, we need to use a new operation on matrices. It is called \qt{matrix multiplication}. But is this operation really new?
 - Yes, but not entirely...
-
