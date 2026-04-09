@@ -111,14 +111,14 @@ Thus, the unique solution is $(x,y,z) = (1, -2, 1)$. We can readily verify this 
 \subsection{General Systems of Linear Equations}
 
 \begin{definition}[Linear Equation]
-A linear equation in $n$ variables $x_1, \dots, x_n$ over a field $K$ is an equation of the form:
+A \qt{linear equation} in $n$ variables $x_1, \dots, x_n$ over a field $K$ is an equation of the form:
 \[
 a_1 x_1 + \dots + a_n x_n = b
 \]
-where $a_1, \dots, a_n \in K$ are the \textit{coefficients} and $b \in K$ is the \textit{constant term}.
+where $a_1, \dots, a_n \in K$ are the \qt{coefficients} and $b \in K$ is the \qt{constant term}.
 \begin{itemize}
-    \item If $b = 0$, the equation is called \textbf{homogeneous}.
-    \item If $b \ne 0$, the equation is called \textbf{inhomogeneous}.
+    \item If $b = 0$, the equation is called \qt{homogeneous}.
+    \item If $b \ne 0$, the equation is called \qt{inhomogeneous}.
 \end{itemize}
 \end{definition}
 
@@ -135,11 +135,11 @@ A_{m,1}x_1 + A_{m,2}x_2 + \dots + A_{m,n}x_n = b_m
 \end{definition}
 
 \begin{definition}[Solution]
-A \textit{solution} to the system is a sequence of scalars $s_1, \dots, s_n \in K$ that simultaneously satisfies all $m$ equations when we substitute $x_j = s_j$.
+A \qt{solution} to the system is a sequence of scalars $s_1, \dots, s_n \in K$ that simultaneously satisfies all $m$ equations when we substitute $x_j = s_j$.
 \end{definition}
 
 \begin{definition}[Equivalence]
-Two systems of linear equations (in the same variables) are called \textbf{equivalent} if they have exactly the same set of solutions.
+Two systems of linear equations (in the same variables) are called \qt{equivalent} if they have exactly the same set of solutions.
 \end{definition}
 
 \subsection{Matrices}
@@ -147,7 +147,7 @@ Two systems of linear equations (in the same variables) are called \textbf{equiv
 To study systems of linear equations systematically, we strip away the variables and isolate the coefficients into a rectangular array.
 
 \begin{definition}[Matrix]
-An $m \times n$ \textit{matrix} over $K$ is a rectangular array consisting of $m \cdot n$ elements of $K$, arranged in $m$ rows and $n$ columns.
+An $m \times n$ \qt{matrix} over $K$ is a rectangular array consisting of $m \cdot n$ elements of $K$, arranged in $m$ rows and $n$ columns.
 \end{definition}
 
 \begin{notation}
@@ -159,18 +159,18 @@ Here, $i$ denotes the row index and $j$ denotes the column index.
 \end{notation}
 
 We define the set of all such matrices as:
-\[
-M_{m \times n}(K) := \text{the set of all } m \times n \text{ matrices over } K
-\]
+\begin{equation*}
+    \M_{m \times n}(K) := \text{the set of all } m \times n \text{ matrices over } K
+\end{equation*}
 
 \begin{definition}[Row and Column Vectors]
 Special cases of matrices occur when one of the dimensions is $1$:
 \begin{enumerate}
-    \item \textbf{Column Vectors:} An $n \times 1$ matrix is called a column vector. The set of all column vectors of length $n$ is denoted by $K^n := M_{n \times 1}(K)$.
+    \item \textbf{Column Vectors:} An $n \times 1$ matrix is called a \qt{column vector}. The set of all column vectors of length $n$ is denoted by $K^n := \M_{n \times 1}(K)$.
     \[
     \begin{pmatrix} x_1 \\ x_2 \\ \vdots \\ x_n \end{pmatrix} \in K^n
     \]
-    \item \textbf{Row Vectors:} A $1 \times n$ matrix is called a row vector. The set of all row vectors of length $n$ is denoted by $K_{\text{row}}^n := M_{1 \times n}(K)$.
+    \item \textbf{Row Vectors:} A $1 \times n$ matrix is called a \qt{row vector}. The set of all row vectors of length $n$ is denoted by $K_{\text{row}}^n := \M_{1 \times n}(K)$.
     \[
     (x_1, x_2, \dots, x_n) \in K_{\text{row}}^n
     \]
@@ -179,8 +179,8 @@ Special cases of matrices occur when one of the dimensions is $1$:
 
 \subsection{Matrix-Vector Multiplication}
 
-\begin{definition}[Multiplication]
-Let $A \in M_{m \times n}(K)$ and $x \in K^n$. We define the product $A \cdot x$ as a new column vector in $K^m$, computed by taking the dot product of the rows of $A$ with the vector $x$:
+\begin{definition}[Matrix-Vector Multiplication]
+Let $A \in \M_{m \times n}(K)$ and $x \in K^n$. We define the product $A \cdot x$ as a new column vector in $K^m$, computed by taking the dot product of the rows of $A$ with the vector $x$:
 \[
 \begin{pmatrix} 
 A_{1,1} & A_{1,2} & \dots & A_{1,n} \\
@@ -211,6 +211,7 @@ To solve $A x = b$, we define the \textit{augmented matrix} $(A|b) \in M_{m \tim
 
 \begin{definition}[Elementary Row Operations]
 Let $E_i$ denote the $i$-th row of the augmented matrix. The three Elementary Row Operations (EROs) are defined and denoted as follows:
+Let $E_i$ denote the $i$-th row of the augmented matrix. The three \qt{Elementary Row Operations} (EROs) are defined and denoted as follows:
 \begin{enumerate}
     \item \textbf{Type 1:} Multiply row $i$ by a non-zero scalar $\lambda \in K \setminus \{0\}$. \\
     Notation: $\lambda \cdot E_i \to E_i$

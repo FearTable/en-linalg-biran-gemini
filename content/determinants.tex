@@ -10,7 +10,7 @@ In linear algebra, determining whether a matrix is invertible is a fundamental p
   \[
   A^{-1} = \frac{1}{ad - bc} \begin{pmatrix} d & -b \\ -c & a \end{pmatrix}.
   \]
-  The scalar quantity $ad - bc$ is called the determinant of $A$, denoted $\det(A)$.
+  The scalar quantity $ad - bc$ is called the \qt{determinant} of $A$, denoted $\det(A)$.
 \end{proposition}
 
 \begin{proof}
@@ -513,7 +513,7 @@ The scalars $C_{ij} := (-1)^{i+j} \det A(i|j)$ are called the \emph{$i,j$ cofact
 \end{summary}
 
 \begin{definition*}[Classical Adjoint]\label{def:classical_adjoint}
-  The transpose of the matrix of cofactors, $(C_{ij})^T$, is called the \qt{classical adjoint} (or adjugate) of $A$, denoted $\operatorname{adj} A \in \M_{n \times n}(K)$. Explicitly, $(\operatorname{adj} A)_{ij} = C_{ji} = (-1)^{i+j} \det A(j|i)$.
+  The transpose of the matrix of cofactors, $(C_{ij})^T$, is called the \qt{classical adjoint} (or \qt{adjugate}) of $A$, denoted $\operatorname{adj} A \in \M_{n \times n}(K)$. Explicitly, $(\operatorname{adj} A)_{ij} = C_{ji} = (-1)^{i+j} \det A(j|i)$.
 \end{definition*}
 
 Our summary formula above immediately implies the matrix equation:

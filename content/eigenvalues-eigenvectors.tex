@@ -29,7 +29,7 @@ Let us try to find a Fibonacci sequence $\mathcal{F} \ne 0$ such that $S(\mathca
 \[ S(\mathcal{F}) = \lambda \cdot \mathcal{F} \iff \lambda = \frac{1\pm\sqrt{5}}{2} \text{ and } \mathcal{F} = (a, a\lambda, a\lambda^2, \dots, a\lambda^n, \dots) \]
 
 \begin{definition}[Eigenvalue and Eigenvector]\label{def:eigenvalue_eigenvector}
-  Let $V$ be a vector space over $K$ and $T: V \rightarrow V$ a linear map (an endomorphism of $V$). We say that $\lambda \in K$ is an \qt{eigenvalue} (a.k.a. characteristic value) of $T$ if there exists a vector $v \ne 0$ such that $Tv = \lambda v$. Any vector $v \ne 0$ with the property that $Tv = \lambda v$ is called an \qt{eigenvector} (of $T$) for the eigenvalue $\lambda$.
+  Let $V$ be a vector space over $K$ and $T: V \rightarrow V$ a linear map (an endomorphism of $V$). We say that $\lambda \in K$ is an \qt{eigenvalue} (a.k.a. \qt{characteristic value}) of $T$ if there exists a vector $v \ne 0$ such that $Tv = \lambda v$. Any vector $v \ne 0$ with the property that $Tv = \lambda v$ is called an \qt{eigenvector} (of $T$) for the eigenvalue $\lambda$.
 \end{definition}
 
 \begin{definition}[Diagonalizable Endomorphism]\label{def:diagonalizable_endomorphism}
@@ -312,7 +312,7 @@ Let $0 \ne p(x) \in K[x]$ and $\lambda \in K$. By dividing $p(x)$ by $(x-\lambda
 where $\deg q(x) = \deg p(x) - 1$, and $R \in K$ is the remainder.
 If we substitute $x = \lambda$ into \eqref{eq:poly_division}, we obtain $p(\lambda) = 0 \cdot q(\lambda) + R = R$. Thus, $p(x) = (x-\lambda) \cdot q(x) + p(\lambda)$.
 Conclusion: $p(\lambda) = 0 \iff p(x) = (x-\lambda) \cdot q(x)$ for some $q(x) \in K[x]$.
-We say that $\lambda$ is a \textbf{zero} of $p(x)$ (De: Nullstelle), or a \textbf{root} of $p(x)$.
+We say that $\lambda$ is a \qt{zero} of $p(x)$ (De: Nullstelle), or a \qt{root} of $p(x)$.
 Sometimes, $\lambda$ is also a zero of $q(x)$, so $q(x) = (x-\lambda) \cdot h(x)$, which implies $p(x) = (x-\lambda)^2 \cdot h(x)$, etc.
 
 \begin{definition}[Multiplicity of a Zero] \label{def:mult_zero}

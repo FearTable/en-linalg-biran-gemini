@@ -106,7 +106,7 @@ If $A \in \M_{m \times n}(K)$ and $B \in \M_{n \times p}(K)$, then $A \cdot B$ i
 
 As a conclusion from our previous discussions on linear maps, let $T: V \to W$ and $S: W \to U$ be linear maps between finite-dimensional vector spaces. Let $\mathcal{B}$, $\mathcal{C}$, and $\mathcal{E}$ be bases for $V$, $W$, and $U$, respectively. The matrix representation of the composition $S \circ T$ is given by the product of their respective representation matrices:
 \[
-    [S \circ T]_{\mathcal{B}}^{\mathcal{E}} = [S]_{\mathcal{C}}^{\mathcal{E}} \cdot [T]_{\mathcal{B}}^{\mathcal{C}}
+    [S \circ T]_{\mathcal{E}}^{\mathcal{B}} = [S]_{\mathcal{E}}^{\mathcal{C}} \cdot [T]_{\mathcal{C}}^{\mathcal{B}}
 \]
 
 \begin{center}
@@ -280,10 +280,11 @@ If $A$ is invertible, the unique matrix $B$ such that $AB = BA = I_n$ is called 
 
 \begin{definition}[Group]
 Let $G$ be a set and $\cdot : G \times G \to G$, $(a,b) \mapsto a \cdot b \in G$, be a binary operation. We say that $(G, \cdot)$ is a \textbf{group} if the following axioms hold:
+Let $G$ be a set and $\cdot : G \times G \to G$, $(a,b) \mapsto a \cdot b \in G$, be a binary operation. We say that $(G, \cdot)$ is a \qt{group} if the following axioms hold:
 \begin{enumerate}
     \item \textbf{Associativity:} For all $g_1, g_2, g_3 \in G$, we have $g_1 \cdot (g_2 \cdot g_3) = (g_1 \cdot g_2) \cdot g_3$.
-    \item \textbf{Identity Element:} There exists an element $e \in G$ such that $e \cdot g = g \cdot e = g$ for all $g \in G$. The element $e$ is called the unit (or identity) of $G$.
-    \item \textbf{Inverse Element:} For every $g \in G$, there exists an element $h \in G$ such that $g \cdot h = h \cdot g = e$. The element $h$ is called the inverse of $g$.
+    \item \textbf{Identity Element:} There exists an element $e \in G$ such that $e \cdot g = g \cdot e = g$ for all $g \in G$. The element $e$ is called the \qt{unit} (or \qt{identity}) of $G$.
+    \item \textbf{Inverse Element:} For every $g \in G$, there exists an element $h \in G$ such that $g \cdot h = h \cdot g = e$. The element $h$ is called the \qt{inverse} of $g$.
 \end{enumerate}
 Furthermore, if $G$ satisfies $g_1 \cdot g_2 = g_2 \cdot g_1$ for all $g_1, g_2 \in G$, we say that $G$ is a \qt{commutative group} (or \qt{Abelian group}).
 \end{definition}
