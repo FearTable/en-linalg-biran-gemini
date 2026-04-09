@@ -121,7 +121,11 @@ The columns of $A$ that correspond to the \qt{pivot columns} of its row-reduced 
 \end{theorem}
 
 \begin{proof}
-By Proposition \ref{prop:preservation_relations}, row operations preserve the linear dependence relations between columns. Thus, a set of columns in $A$ is linearly independent (or spans the column space) if and only if the corresponding set of columns in $B$ possesses the same property in $\operatorname{Cols}(B)$.
+By the principle that row operations preserve the linear dependence relations between columns, we have:
+\[
+\sum_{i=1}^n \alpha_i w_i = 0 \iff \sum_{i=1}^n \alpha_i w'_i = 0.
+\]
+Thus, a set of columns in $A$ is linearly independent (or spans the column space) if and only if the corresponding set of columns in $B$ possesses the same property in $\ColS(B)$.
 
 Consider the row-reduced echelon matrix $B \in \M_{m \times n}(K)$ with $r$ pivots. We visualize its block structure and the specific indices of its pivot columns $j_1, j_2, \dots, j_r$:
 

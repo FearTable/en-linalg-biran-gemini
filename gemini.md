@@ -40,9 +40,15 @@ You are authorized to improve the prose and apply the established "House Style" 
 * **Proof Labels:** Label sub-parts of proofs using bold parentheses (e.g., \textbf{(a)}, \textbf{(b)}).
 * **Labels:** Use descriptive, human-readable slugs for labels instead of numbering schemes. For example, use `\label{prop:unique_solution_criterion}` instead of `\label{prop:17.d.4}`. If possible (i.e. available),always place the original handwritten note label as a comment directly above the new descriptive label (e.g., `% prop:17.d.4`). This avoids duplicates and makes the LaTeX source much easier to navigate.
 * **Theorem Numbering:** The global theorem numbering scheme is `Chapter.SectionLetter.TheoremNumber` (e.g., 15.a.1). However, for specific chapters where a simpler numbering is desired, it is permissible to override this locally to `Chapter.TheoremNumber` (e.g., 12.1) using `\renewcommand{\thetheorem}{\thechapter.\arabic{theorem}}` at the beginning of the chapter file.
+* **Cross-Referencing:** Use `\ref{...}` for referencing sections, theorems, propositions, lemmas, and definitions. Use `\eqref{...}` exclusively for referencing equations (this automatically adds parentheses around the number).
+* **Lists with Descriptions:** For lists where each item has a specific name or title (e.g., "Associativity", "Distributivity"), use the `description` environment. For standard numbered lists, use `enumerate` but do not hard-code labels; rely on the global style defined in the preamble.
 * **The \qt Macro:** Use `\qt{...}` for the *first* mention of a newly defined term in the body of a definition or theorem. Don't use this if the term might get introduced in a previous chapter that is not yet included. But better suggest using `\qt{...}` to often.
 * **Bracket Restriction:** NEVER use `\qt{...}` or any other formatting macro inside the square brackets `[...]` of an environment header (e.g., `\begin{definition}[Linear Map]` is correct; `\begin{definition}[\qt{Linear Map}]` is WRONG).
-
+* **Elementary Row Operations (EROs):** Strictly use Prof. Biran's left-to-right arrow convention. 
+    * Type 1 (Scaling): `\lambda \cdot E_i \to E_i`
+    * Type 2 (Addition): `\lambda \cdot E_i + E_j \to E_j`
+    * Type 3 (Swap): `E_i \leftrightarrow E_j`
+    * *Never* use the standard textbook format (e.g., $E_j \to E_j + \lambda E_i$).
 
 # GRAMMAR AND PROSE STYLE
 * **Logical Arrows:** The default for prose should be words (e.g., This implies that, Consequently, Therefore, Hence, Thus, if and only if). However, you may use \implies or \iff sparingly within the text when it adds mathematical spice or improves visual clarity.
