@@ -2,8 +2,6 @@
 \renewcommand{\thetheorem}{\thechapter.\arabic{theorem}}
 \setcounter{theorem}{0}
 
-
-
 \chapter{Row and Column Spaces}
 
 In this chapter, we bridge the abstract theory of vector spaces with the algorithmic power of matrix theory. We use Gauss elimination as a scalpel to dissect the structure of coordinate spaces.
@@ -22,13 +20,15 @@ Consider the vector space $K^{m}$ over a field $K$. Let $w_{1}, \dots, w_{n} \in
 \end{question}
 
 \begin{answer}[To Questions 1 and 2]
-By definition, $w \in \Sp(w_{1}, \dots, w_{n})$ if and only if there exist scalars $x_{1}, \dots, x_{n} \in K$ such that $w = x_{1} w_{1} + \dots + x_{n} w_{n}$. We can assemble the vectors $w_{j}$ as columns of an $m \times n$ matrix $A$. This abstract combination is equivalent to the matrix equation:
+By definition, $w \in \Sp(w_{1}, \dots, w_{n})$ if and only if there exist scalars $x_{1}, \dots, x_{n} \in K$ such that $w = x_{1} w_{1} + \dots + x_{n} w_{n}$. We can assemble the vectors $w_{j}$ as columns of an $m \times n$ matrix $A$. This abstract linear combination is equivalent to the matrix equation:
 \[
 \underbrace{\begin{pmatrix} | & & | \\ w_{1} & \dots & w_{n} \\ | & & | \end{pmatrix}}_{A} \cdot \begin{pmatrix} x_{1} \\ \vdots \\ x_{n} \end{pmatrix} = \begin{pmatrix} | \\ w \\ | \end{pmatrix}
 \]
-Thus, $w$ is in the span iff the system $Ax = w$ is consistent. We analyze this using Gauss elimination on the augmented matrix $(A \mid w)$. To describe the span precisely, we take a general vector $b = (b_{1}, \dots, b_{m})^{T}$ and reduce the augmented matrix to a row-reduced echelon form $(A' \mid b')$. 
+Thus, $w$ is in the span if and only if the linear system $Ax = w$ is \qt{consistent} (i.e., it possesses at least one valid solution vector $x$). We analyze this by applying Gauss elimination on the augmented matrix $(A \mid w)$. 
 
-As shown in Prof. Biran's notes, the resulting matrix has the following characteristic block structure:
+To answer the second question and describe the entire span precisely, we replace the specific target $w$ with a general, variable vector $b = (b_{1}, \dots, b_{m})^{T}$ and reduce the augmented matrix $(A \mid b)$ to a row-reduced echelon form $(A' \mid b')$. 
+
+This row operation procedure transforms our original problem into a much simpler, equivalent linear system $A'x = b'$. As shown in Prof. Biran's notes, the resulting matrix generally has the following characteristic block structure:
 \begin{equation}
 \label{eq:block_consistency}
 (A' \mid b') = \left( 
@@ -42,7 +42,9 @@ As shown in Prof. Biran's notes, the resulting matrix has the following characte
 \end{array} 
 \right)
 \end{equation}
-The system is consistent if and only if the entries in $b'$ corresponding to the zero-rows of $A'$ vanish. Therefore:
+In this reduced block structure, any row of $A'$ consisting entirely of zeros translates to an algebraic equation of the form $0 = b'_{i}$. For the overall system to be consistent (meaning a solution actually exists), it is an absolute requirement that the right-hand side of these specific equations also evaluates to zero. 
+
+In other words, the system is consistent if and only if the entries in $b'$ corresponding to the zero-rows of $A'$ strictly vanish. Therefore, we can concisely describe the span as the set of all vectors satisfying these constraints:
 \[
 \Sp(w_{1}, \dots, w_{n}) = \left\{ b \in K^{m} \;\middle|\; b'_{r+1} = \dots = b'_{m} = 0 \right\}.
 \]
@@ -51,15 +53,20 @@ The system is consistent if and only if the entries in $b'$ corresponding to the
 % ex:13.1
 \begin{example}[Calculating a Specific Span]
 \label{ex:span_calc}
-Let $v_{1} = (1, 1, 1)^{T}$ and $v_{2} = (1, 0, -1)^{T} \in K^{3}$. To describe $\Sp(v_{1}, v_{2})$, we row-reduce $(A \mid b)$:
+Let $v_{1} = (1, 1, 1)^{T}$ and $v_{2} = (1, 0, -1)^{T} \in K^{3}$. To describe $\Sp(v_{1}, v_{2})$, we set up the augmented matrix with a general vector $b$ and row-reduce:
 \[
 \left( \begin{array}{cc|c} 1 & 1 & b_{1} \\ 1 & 0 & b_{2} \\ 1 & -1 & b_{3} \end{array} \right) \xrightarrow{R_{2}-R_{1}, R_{3}-R_{1}} \left( \begin{array}{cc|c} 1 & 1 & b_{1} \\ 0 & -1 & b_{2}-b_{1} \\ 0 & -2 & b_{3}-b_{1} \end{array} \right) \xrightarrow{R_{3}-2R_{2}} \left( \begin{array}{cc|c} 1 & 1 & b_{1} \\ 0 & -1 & b_{2}-b_{1} \\ \hline 0 & 0 & b_{1}-2b_{2}+b_{3} \end{array} \right)
 \]
-Thus, $\Sp(v_{1}, v_{2}) = \{ (b_{1}, b_{2}, b_{3})^{T} \in K^{3} \mid b_{1} - 2b_{2} + b_{3} = 0 \}$.
+The system is consistent if and only if the expression corresponding to the zero-row evaluates to zero. Thus, the span is perfectly described by that single plane equation:
+\[
+\Sp(v_{1}, v_{2}) = \{ (b_{1}, b_{2}, b_{3})^{T} \in K^{3} \mid b_{1} - 2b_{2} + b_{3} = 0 \}.
+\]
 \end{example}
 
 \begin{answer}[To Question 3]
-The vectors are linearly independent if $Ax = 0$ has only the trivial solution. This occurs if and only if the row-reduced echelon form $A'$ has a pivot in \qt{every column}. If a column lacks a pivot, the corresponding variable is \qt{free}, allowing for non-trivial solutions and thus linear dependence.
+The vectors are linearly independent if and only if the homogeneous equation $Ax = 0$ has only the trivial solution (i.e., $x_1 = \dots = x_n = 0$). 
+
+This occurs if and only if the row-reduced echelon form $A'$ has a pivot in \qt{every column}. If even a single column lacks a pivot, the corresponding variable becomes \qt{free} (e.g., it can be parameterized to take on any scalar value). The existence of a free variable immediately allows for non-trivial solutions, which by definition means the vectors are linearly dependent.
 \end{answer}
 
 % thm:13.2
@@ -74,8 +81,8 @@ Let $v_{1}, \dots, v_{n} \in K^{m}$.
 
 \begin{proof}
 \begin{enumerate}
-    \item Let $A = (v_{1} \mid \dots \mid v_{n})$. The number of pivots in $A'$ is at most the number of rows $m$. If $n > m$, at least $n - m$ columns are without pivots. These free variables imply non-trivial solutions to $Ax = 0$, hence dependence.
-    \item The number of pivots is at most $n$. If $n < m$, there are at least $m - n$ zero-rows in $A'$. By \eqref{eq:block_consistency}, there exist vectors $b$ such that the system is inconsistent.
+    \item Let $A = (v_{1} \mid \dots \mid v_{n})$. The number of pivots in $A'$ is bounded by the number of rows $m$. If $n > m$, at least $n - m$ columns are forced to be without pivots. These free variables guarantee non-trivial solutions to $Ax = 0$, hence dependence.
+    \item The number of pivots is bounded by the number of columns $n$. If $n < m$, there are at least $m - n$ zero-rows in $A'$. By the logic of equation \eqref{eq:block_consistency}, we can easily choose a vector $b$ such that the resulting $b'$ has non-zero entries in those bottom rows, making the system inconsistent.
 \end{enumerate}
 \end{proof}
 
@@ -86,19 +93,19 @@ Let $v_{1}, \dots, v_{n} \in K^{m}$.
 \label{def:matrix_subspaces}
 Let $A \in \M_{m \times n}(K)$.
 \begin{enumerate}
-    \item The \qt{column space} $\operatorname{Cols}(A) \subseteq K^{m}$ is the span of the columns of $A$.
-    \item The \qt{row space} $\operatorname{Rows}(A) \subseteq K^{n}$ is the span of the rows of $A$.
+\item The \qt{column space} $\ColS(A) \subseteq K^{m}$ is the span of the columns of $A$.
+\item The \qt{row space} $\RowS(A) \subseteq K^{n}$ is the span of the rows of $A$.
 \end{enumerate}
 \end{definition}
 
 % prop:13.5
 \begin{proposition}[Invariance of Row Space]
 \label{prop:row_space_invariance}
-Elementary row operations do not change the row space: $\operatorname{Rows}(A) = \operatorname{Rows}(A')$.
+Elementary row operations do not change the row space: $\RowS(A) = \RowS(A')$.
 \end{proposition}
 
 \begin{proof}
-New rows are linear combinations of old rows, and operations are reversible.
+New rows are simply linear combinations of the old rows, and because elementary operations are reversible, the spans remain identical.
 \end{proof}
 
 \begin{importantremark}
@@ -110,7 +117,7 @@ Row operations \textbf{do} change the column space, as seen by $\begin{pmatrix} 
 % thm:13.7
 \begin{theorem}[Basis for the Column Space]
 \label{thm:basis_col_space}
-The columns of $A$ that correspond to the \qt{pivot columns} of its row-reduced echelon form $B$ constitute a basis for $\operatorname{Cols}(A)$.
+The columns of $A$ that correspond to the \qt{pivot columns} of its row-reduced echelon form $B$ constitute a basis for $\ColS(A)$.
 \end{theorem}
 
 \begin{proof}
@@ -143,33 +150,32 @@ e_r = \begin{pmatrix} 0 \\ \vdots \\ 1 \\ 0 \\ \vdots \\ 0 \end{pmatrix}
 \]
 where for each $e_i$, the entry $1$ is located at the $i$-th row. Because $B$ is in row-reduced echelon form, every entry in every column $w'_j$ that lies below the $r$-th row must be zero. This implies that:
 \[
-w'_j \in K^r \times \{0\}^{m-r} = \left\{ (x_1, \dots, x_r, 0, \dots, 0)^T \in K^m \right\}.
+w'_j \in K^r \times \{0\}^{m-r} = \left\{ (x_1, \dots, x_r, 0, \dots, 0)^{T} \in K^m \right\}.
 \]
 Since the standard basis vectors $e_1, \dots, e_r$ are clearly linearly independent and they span the subspace $K^r \times \{0\}^{m-r}$, we establish the following chain of inclusions:
 \[
-K^r \times \{0\}^{m-r} = \Sp(e_1, \dots, e_r) \subseteq \operatorname{Cols}(B) \subseteq K^r \times \{0\}^{m-r}.
+K^r \times \{0\}^{m-r} = \Sp(e_1, \dots, e_r) \subseteq \ColS(B) \subseteq K^r \times \{0\}^{m-r}.
 \]
-This double inclusion forces the equality $\operatorname{Cols}(B) = \Sp(e_1, \dots, e_r) = K^r \times \{0\}^{m-r}$. Consequently, the pivot columns of $B$ form a basis for its column space. By the preservation of linear relations, the corresponding columns in the original matrix $A$ form a basis for $\operatorname{Cols}(A)$.
+This double inclusion forces the equality $\ColS(B) = \Sp(e_1, \dots, e_r) = K^r \times \{0\}^{m-r}$. Consequently, the pivot columns of $B$ form a basis for its column space. By the preservation of linear relations, the corresponding columns in the original matrix $A$ form a basis for $\ColS(A)$.
 \end{proof}
-
 
 % thm:13.8
 \begin{theorem}[Basis for the Row Space]
 \label{thm:row_basis}
-The non-zero rows of the row-reduced echelon matrix $B$ form a basis for $\operatorname{Rows}(A)$.
+The non-zero rows of the row-reduced echelon matrix $B$ form a basis for $\RowS(A)$.
 \end{theorem}
 
 \begin{corollary}[Rank Invariance]
 \label{cor:rank_invariance}
-The number of pivots is independent of the sequence of row operations, as it always equals $\dim \operatorname{Rows}(A)$.
+The number of pivots is independent of the sequence of row operations, as it always equals $\dim \RowS(A)$.
 \end{corollary}
 
 % thm:13.13
 \begin{theorem}[The Rank Equality]
 \label{thm:rank_equality}
-For any $A \in \M_{m \times n}(K)$, $\dim \operatorname{Rows}(A) = \dim \operatorname{Cols}(A)$. This shared dimension is the \qt{rank} of $A$, denoted $\rank(A)$.
+For any $A \in \M_{m \times n}(K)$, $\dim \RowS(A) = \dim \ColS(A)$. This shared dimension is the \qt{rank} of $A$, denoted $\rank(A)$.
 \end{theorem}
 
 \begin{proof}
-Let $r$ be the number of pivots in the RREF of $A$. By Theorem \ref{thm:col_basis}, $\dim \operatorname{Cols}(A) = r$. By Theorem \ref{thm:row_basis}, $\dim \operatorname{Rows}(A) = r$. Thus, the dimensions are equal.
+Let $r$ be the number of pivots in the RREF of $A$. By Theorem \ref{thm:basis_col_space}, $\dim \ColS(A) = r$. By Theorem \ref{thm:row_basis}, $\dim \RowS(A) = r$. Thus, the dimensions are exactly equal.
 \end{proof}
