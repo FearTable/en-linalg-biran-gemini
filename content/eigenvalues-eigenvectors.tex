@@ -876,13 +876,13 @@ Let $A \in \M_{n \times n}(K)$. Then, $A \in \GL_n(K)$ if and only if $A^T \in \
 \begin{proof}
 We know that $A$ is invertible if and only if the associated linear map $T_A: K^n \to K^n$ is an isomorphism. This is true if and only if $\rank(T_A) = n$, which is equivalent to $\rank_{\text{col}}(A) = n$.
 
-We also know that $A$ is row-equivalent to some row-reduced echelon matrix $A'$. Since row-equivalence corresponds to multiplying from the left by invertible matrices, we have that $A \in GL_n(K)$ if and only if $A' \in GL_n(K)$. Because $A'$ is an $n \times n$ row-reduced echelon matrix, $A'$ is invertible if and only if it has no zero rows. This holds if and only if $A'$ has $n$ pivots, which is equivalent to $\rank_{\text{row}}(A') = n$. Since row operations preserve the row space, this means $\rank_{\text{row}}(A) = n$.
+We also know that $A$ is row-equivalent to some row-reduced echelon matrix $A'$. Since row-equivalence corresponds to multiplying from the left by invertible matrices, we have that $A \in \GL_n(K)$ if and only if $A' \in \GL_n(K)$. Because $A'$ is an $n \times n$ row-reduced echelon matrix, $A'$ is invertible if and only if it has no zero rows. This holds if and only if $A'$ has $n$ pivots, which is equivalent to $\rank_{\text{row}}(A') = n$. Since row operations preserve the row space, this means $\rank_{\text{row}}(A) = n$.
 
-In summary, we have established that $A \in GL_n(K)$ if and only if $\rank_{\text{row}}(A) = n$. But by definition, the row rank of $A$ is exactly the column rank of its transpose, so $\rank_{\text{row}}(A) = \rank_{\text{col}}(A^T)$. Therefore, $A \in GL_n(K)$ if and only if $\rank_{\text{col}}(A^T) = n$, which means $A^T$ is invertible.
+In summary, we have established that $A \in \GL_n(K)$ if and only if $\rank_{\text{row}}(A) = n$. But by definition, the row rank of $A$ is exactly the column rank of its transpose, so $\rank_{\text{row}}(A) = \rank_{\text{col}}(A^T)$. Therefore, $A \in \GL_n(K)$ if and only if $\rank_{\text{col}}(A^T) = n$, which means $A^T$ is invertible.
 \end{proof}
 
 \begin{lemma}[Rank Invariance under Matrix Equivalence] \label{lemma:17.c.4}
-Let $A, B \in M_{m \times n}(K)$ such that $B = P A Q$, where $P \in \GL_m(K)$ and $Q \in \GL_n(K)$. Then:
+Let $A, B \in \M_{m \times n}(K)$ such that $B = P A Q$, where $P \in \GL_m(K)$ and $Q \in \GL_n(K)$. Then:
 \begin{enumerate}
     \item $\rank_{\text{col}}(A) = \rank_{\text{col}}(B)$.
     \item $\rank_{\text{row}}(A) = \rank_{\text{row}}(B)$.
@@ -900,7 +900,7 @@ Let $A, B \in M_{m \times n}(K)$ such that $B = P A Q$, where $P \in \GL_m(K)$ a
 We are now ready for the proof of Theorem \ref{thm:17.c.1}.
 
 \begin{proof}[Proof of Theorem \ref{thm:17.c.1}]
-Let $r := \rank_{\text{col}}(A)$. By a previous proposition regarding the equivalence of matrices, we know that there exist invertible matrices $P \in GL_m(K)$ and $Q \in GL_n(K)$ such that:
+Let $r := \rank_{\text{col}}(A)$. By a previous proposition regarding the equivalence of matrices, we know that there exist invertible matrices $P \in \GL_m(K)$ and $Q \in \GL_n(K)$ such that:
 \begin{equation*}
     P A Q = \begin{pmatrix} I_r & O \\ O & O \end{pmatrix} =: B
 \end{equation*}
