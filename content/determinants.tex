@@ -128,7 +128,7 @@ Therefore, $D$ is completely determined by its values on the following four pair
   Now suppose $B'$ is obtained from $B$ by interchanging rows $k$ and $\ell$ where $k < \ell$. We can obtain $B'$ by doing a sequence of adjacent row interchanges. Moving row $\ell$ to position $k$ requires $r = \ell-k$ adjacent interchanges. Next, moving the original row $k$ down to position $\ell$ requires $r-1$ adjacent interchanges. The total number of interchanges is $2r - 1$. Since this is always an odd number, we flip the sign an odd number of times. Thus, $D(B') = (-1)^{2r-1} D(B) = -D(B)$.
 
   We now prove \textbf{(a)}. Let $A$ be a matrix in which row $i$ equals row $j$ where $i < j$. If $j = i+1$, then by assumption $D(A) = 0$. If $j > i+1$, we interchange row $j$ with row $i+1$ to obtain a matrix $A'$ with two equal adjacent rows.
-  By assumption $D(A') = 0$, but by \textbf{(b)}, $D(A') = -D(A)$, which implies $D(A) = 0$.
+  By assumption $D(A') = 0$, but by \textbf{(b)}, $D(A') = -D(A)$ (since we performed an odd number of adjacent swaps), which implies $D(A) = 0$.
 \end{proof}
 
 \subsection{The Determinant Function}
@@ -175,7 +175,7 @@ Therefore, $D$ is completely determined by its values on the following four pair
   Assume $\alpha_k = \alpha_{k+1}$ for some index $k$. For any $i \neq k, k+1$, the submatrix $A(i|j)$ still has two equal rows, hence $D_{ij}(A) = 0$. This leaves only two non-zero terms in the sum:
   \[
   E_j(A) = (-1)^{k+j} A_{kj} D_{kj}(A) + (-1)^{k+1+j} A_{(k+1)j} D_{(k+1)j}(A).
-  \]
+  \] % (since all other terms $D_{ij}(A)$ are zero because $A(i|j)$ would still have two identical rows)
   But, since $\alpha_k = \alpha_{k+1}$, we have $A_{kj} = A_{(k+1)j}$ and $A(k|j) = A(k+1|j)$, meaning $D_{kj}(A) = D_{(k+1)j}(A)$. Thus, the two terms perfectly cancel out, yielding $E_j(A) = 0$. This proves $E_j$ is alternating.
 
   Finally, assume $D$ is a determinant function, meaning $D(I_{n-1}) = 1$. Note that $I_n(j|j) = I_{n-1}$ for all $j$. When computing $E_j(I_n)$, the term $(I_n)_{ij}$ is $1$ if $i=j$, and $0$ if $i \neq j$. Therefore, the sum collapses to a single term:
@@ -190,7 +190,7 @@ Therefore, $D$ is completely determined by its values on the following four pair
 \end{corollary}
 
 \begin{example}
-  Consider $A \in M_{3 \times 3}(K)$. Using the uniquely defined $2 \times 2$ determinant function $|B| := B_{11}B_{22} - B_{12}B_{21}$, we can explicitly write out $E_1(A)$ as:
+  Consider $A \in \M_{3 \times 3}(K)$. Using the uniquely defined $2 \times 2$ determinant function $|B| := B_{11}B_{22} - B_{12}B_{21}$, we can explicitly write out $E_1(A)$ (expanding along the first column) as:
   \[
   E_1(A) = A_{11} \begin{vmatrix} A_{22} & A_{23} \\ A_{32} & A_{33} \end{vmatrix} - A_{21} \begin{vmatrix} A_{12} & A_{13} \\ A_{32} & A_{33} \end{vmatrix} + A_{31} \begin{vmatrix} A_{12} & A_{13} \\ A_{22} & A_{23} \end{vmatrix}.
   \]
@@ -440,7 +440,7 @@ Calculating the determinant of a large matrix by expanding all permutations is c
 \end{proof}
 
 \begin{remark}[Exercise]
-  Show that $\det \left(\begin{smallmatrix} A & 0 \\ B & C \end{smallmatrix}\right) = \det(A) \cdot \det(C)$, where $A \in \M_{r \times r}(K)$, $C \in \M_{s \times s}(K)$, and $B \in \M_{s \times r}(K)$.
+  Show that $\det \left(\begin{smallmatrix} A & 0 \\ B & C \end{smallmatrix}\right) = \det(A) \cdot \det(C)$, where $A \in \M_{r \times r}(K)$, $C \in \M_{s \times s}(K)$, and $B \in \M_{s \times r}(K)$. (Hint: Use column operations to reduce $B$ to zero, or consider the transpose of the matrix and apply Proposition \ref{prop:block_matrix}.)
 \end{remark}
 
 \begin{example}[Calculation of a $4 \times 4$ Determinant]
@@ -529,7 +529,7 @@ Our summary formula above immediately implies the matrix equation:
   Since $A^T(i|j) = (A(j|i))^T$, we have
   \[(\operatorname{adj} A^T)_{ij} = (-1)^{i+j} \det A^T(j|i) = (-1)^{i+j} \det(A(i|j)^T) = (-1)^{i+j} \det A(i|j).\]
   This perfectly matches $(\operatorname{adj} A)_{ji}$, which is exactly $((\operatorname{adj} A)^T)_{ij}$. Thus, $\operatorname{adj} A^T = (\operatorname{adj} A)^T$.
-
+  % Original: Since $A^T(i|j) = (A(j|i))^T$, we have $(\operatorname{adj} A^T)_{ij} = (-1)^{i+j} \det A^T(j|i) = (-1)^{i+j} \det(A(i|j)^T) = (-1)^{i+j} \det A(i|j)$. This perfectly matches $(\operatorname{adj} A)_{ji}$, which is exactly $((\operatorname{adj} A)^T)_{ij}$. Thus, $\operatorname{adj} A^T = (\operatorname{adj} A)^T$.
   Applying \eqref{eq:adj_property_right} to the matrix $A^T$ gives $(\operatorname{adj} A^T) \cdot A^T = (\det A^T) \cdot I$. Using our transpose identities, this becomes $(\operatorname{adj} A)^T \cdot A^T = (\det A) \cdot I$. Taking the transpose of both sides finally yields $A \cdot (\operatorname{adj} A) = (\det A) \cdot I$.
 \end{proof}
 
