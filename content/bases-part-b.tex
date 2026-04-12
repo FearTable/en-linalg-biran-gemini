@@ -46,26 +46,28 @@ Because we assumed $V$ is finite-dimensional, there must exist some finite list 
 If $S$ is linearly dependent, we can extract a basis from it using the following systematic reduction algorithm (often called a "Redundancy Filter"):
 
 \begin{center}
-\begin{tikzpicture}[
-    node distance=1.5cm,
-    box/.style={draw, thick, rounded corners, align=center, inner sep=2ex},
-    arrow/.style={->, thick, >=stealth}
-]
-    \node[box, fill=blue!10] (start) {\textbf{Spanning List} \\ $w_1, w_2, \dots, w_k$};
-    
-    \node[box, fill=yellow!10, below=1cm of start] (check) {Read left to right. \\ Is $w_j \in \Sp(w_1, \dots, w_{j-1})$?};
-    
-    \node[box, fill=red!10, left=1cm of check, yshift=-1.5cm] (drop) {\textbf{Yes:} Drop $w_j$. \\ (Span is preserved by Lemma B)};
-    \node[box, fill=green!10, right=1cm of check, yshift=-1.5cm] (keep) {\textbf{No:} Keep $w_j$.};
-    
-    \node[box, fill=blue!10, below=4cm of start] (final) {\textbf{Final Output} \\ A linearly independent list \\ that still spans $V$ (A Basis!)};
-    
-    \draw[arrow] (start) -- (check);
-    \draw[arrow] (check) -- node[above left] {Redundant} (drop);
-    \draw[arrow] (check) -- node[above right] {Independent} (keep);
-    \draw[arrow] (drop) |- (final);
-    \draw[arrow] (keep) |- (final);
-\end{tikzpicture}
+\resizebox{0.9\textwidth}{!}{
+    \begin{tikzpicture}[scale=1,
+        node distance=1.5cm,
+        box/.style={draw, thick, rounded corners, align=center, inner sep=2ex},
+        arrow/.style={->, thick, >=stealth}
+    ]
+        \node[box, fill=blue!10] (start) {\textbf{Spanning List} \\ $w_1, w_2, \dots, w_k$};
+        
+        \node[box, fill=yellow!10, below=1cm of start] (check) {Read left to right. \\ Is $w_j \in \Sp(w_1, \dots, w_{j-1})$?};
+        
+        \node[box, fill=red!10, left=1cm of check, yshift=-1.5cm] (drop) {\textbf{Yes:} Drop $w_j$. \\ (Span is preserved by Lemma B)};
+        \node[box, fill=green!10, right=1cm of check, yshift=-1.5cm] (keep) {\textbf{No:} Keep $w_j$.};
+        
+        \node[box, fill=blue!10, below=4cm of start] (final) {\textbf{Final Output} \\ A linearly independent list \\ that still spans $V$ (A Basis!)};
+        
+        \draw[arrow] (start) -- (check);
+        \draw[arrow] (check) -- node[above left] {Redundant} (drop);
+        \draw[arrow] (check) -- node[above right] {Independent} (keep);
+        \draw[arrow] (drop) |- (final);
+        \draw[arrow] (keep) |- (final);
+    \end{tikzpicture}
+}
 \end{center}
 
 Specifically:

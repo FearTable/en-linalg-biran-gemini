@@ -118,11 +118,11 @@ Let us try to find a Fibonacci sequence $\mathcal{F} \ne 0$ such that $S(\mathca
 \begin{lemma}[Properties of the Characteristic Polynomial]\label{lem:properties_char_poly}
   Let $A \in \M_{n \times n}(K)$. Then:
   \begin{enumerate}
-    \item[\textbf{(a)}] $P_A(x)$ is a polynomial of degree $n$ with leading coefficient $(-1)^n$ (i.e., $P_A(x) = c_n x^n + c_{n-1} x^{n-1} + \dots + c_1 x + c_0$, with $c_i \in K$ for all $i$, and $c_n = (-1)^n$).
-    \item[\textbf{(b)}] $P_{A^T}(x) = P_A(x)$.
-    \item[\textbf{(c)}] If $A = \begin{pmatrix} \lambda_1 & \dots & * \\ 0 & \ddots & \vdots \\ 0 & \dots & \lambda_n \end{pmatrix}$ has upper triangular form, then $P_A(x) = (\lambda_1 - x) \cdot \dots \cdot (\lambda_n - x)$.
-    \item[\textbf{(d)}] If $A = \left(\begin{array}{c|c} B_1 & * \\ \hline 0 & B_2 \end{array}\right)$ is a block matrix, then $P_A(x) = P_{B_1}(x) \cdot P_{B_2}(x)$.
-    \item[\textbf{(e)}] If $A$ and $B$ are similar matrices (i.e., $B = P^{-1}AP$ for some invertible matrix $P$), then $P_A(x) = P_B(x)$.
+    \item $P_A(x)$ is a polynomial of degree $n$ with leading coefficient $(-1)^n$ (i.e., $P_A(x) = c_n x^n + c_{n-1} x^{n-1} + \dots + c_1 x + \dots + c_0$, with $c_i \in K$ for all $i$, and $c_n = (-1)^n$).
+    \item $P_{A^T}(x) = P_A(x)$.
+    \item If $A = \begin{pmatrix} \lambda_1 & \dots & * \\ 0 & \ddots & \vdots \\ 0 & \dots & \lambda_n \end{pmatrix}$ has upper triangular form, then $P_A(x) = (\lambda_1 - x) \cdot \dots \cdot (\lambda_n - x)$.
+    \item If $A = \left(\begin{array}{c|c} B_1 & * \\ \hline 0 & B_2 \end{array}\right)$ is a block matrix, then $P_A(x) = P_{B_1}(x) \cdot P_{B_2}(x)$.
+    \item If $A$ and $B$ are similar matrices (i.e., $B = P^{-1}AP$ for some invertible matrix $P$), then $P_A(x) = P_B(x)$.
   \end{enumerate}
 \end{lemma}
 
@@ -160,10 +160,10 @@ Let us try to find a Fibonacci sequence $\mathcal{F} \ne 0$ such that $S(\mathca
 \end{definition}
 
 \begin{lemma}[Properties of Trace]\label{lem:properties_trace}
-  For all $A, B \in M_{n \times n}(K)$, we have:
+  For all $A, B \in \M_{n \times n}(K)$, we have:
   \begin{enumerate}
-    \item[\textbf{(a)}] $\Tr(A \cdot B) = \Tr(B \cdot A)$.
-    \item[\textbf{(b)}] If $A$ and $B$ are similar matrices, then $\Tr(A) = \Tr(B).$
+    \item $\Tr(A \cdot B) = \Tr(B \cdot A)$.
+    \item If $A$ and $B$ are similar matrices, then $\Tr(A) = \Tr(B).$
   \end{enumerate}
   In particular, if $\mathcal{B}$ and $\mathcal{B}'$ are two bases for $V$, then $\Tr([T]_{\mathcal{B}}^{\mathcal{B}}) = \Tr([T]_{\mathcal{B}'}^{\mathcal{B}'})$. Thus, $\Tr(T)$ is well defined.
 \end{lemma}
@@ -177,7 +177,7 @@ Let us try to find a Fibonacci sequence $\mathcal{F} \ne 0$ such that $S(\mathca
 \end{proof}
 
 Why is the trace interesting?
-Let $A \in M_{n \times n}(K)$ and $P_A(x) = c_n x^n + c_{n-1} x^{n-1} + \dots + c_1 x + c_0$ its characteristic polynomial. We have seen that $c_n = (-1)^n$.
+Let $A \in \M_{n \times n}(K)$ and $P_A(x) = c_n x^n + c_{n-1} x^{n-1} + \dots + c_1 x + c_0$ its characteristic polynomial. We have seen that $c_n = (-1)^n$.
 
 \begin{lemma}[Coefficients of the Characteristic Polynomial]\label{lem:char_poly_coeffs}
   $c_{n-1} = (-1)^{n-1} \cdot \Tr(A)$ and $c_0 = \det(A)$. In other words, $P_A(x) = (-1)^n x^n + (-1)^{n-1}\Tr(A) \cdot x^{n-1} + c_{n-2}x^{n-2} + \dots + c_1 x + \det(A)$.
@@ -362,11 +362,11 @@ Sometimes, $\lambda$ is also a zero of $q(x)$, so $q(x) = (x-\lambda) \cdot h(x)
 \begin{theorem}[Equivalent Conditions for Diagonalizability]\label{thm:diag_equiv}
   Let $V$ be an $n$-dimensional vector space over $K$ and $T \in \End(V)$. The following statements are equivalent:
   \begin{enumerate}
-    \item[\textbf{(a)}] $T$ is diagonalizable.
-    \item[\textbf{(b)}] There exists a basis for $V$ whose elements are eigenvectors of $T$.
-    \item[\textbf{(c)}] The characteristic polynomial $P_T(x)$ splits into a product of linear factors and, for every eigenvalue of $T$, the geometric and algebraic multiplicities are equal.
-    \item[\textbf{(d)}] $\sum_{i=1}^k \dim \Eig_T(\lambda_i) = \dim V$, where $\lambda_1, \dots, \lambda_k \in K$ are all the distinct eigenvalues of $T$.
-    \item[\textbf{(e)}] $V \cong \bigoplus_{i=1}^k \Eig_T(\lambda_i)$.
+    \item $T$ is diagonalizable.
+    \item There exists a basis for $V$ whose elements are eigenvectors of $T$.
+    \item The characteristic polynomial $P_T(x)$ splits into a product of linear factors and, for every eigenvalue of $T$, the geometric and algebraic multiplicities are equal.
+    \item $\sum_{i=1}^k \dim \Eig_T(\lambda_i) = \dim V$, where $\lambda_1, \dots, \lambda_k \in K$ are all the distinct eigenvalues of $T$.
+    \item $V \cong \bigoplus_{i=1}^k \Eig_T(\lambda_i)$.
   \end{enumerate}
 \end{theorem}
 
@@ -596,11 +596,11 @@ g(A) := a_d A^d + a_{d-1}A^{d-1} + \dots + a_1 A + a_0 I_n.
 A natural question arises: can we find a polynomial that completely "kills" or annihilates a given matrix?
 
 \begin{claim*}[Existence of an Annihilating Polynomial]\label{claim:existence_annihilating}
-  For every matrix $A \in M_{n \times n}(K)$, there exists a non-zero polynomial $g \in K[x]$ such that $g(A) = 0$.
+  For every matrix $A \in \M_{n \times n}(K)$, there exists a non-zero polynomial $g \in K[x]$ such that $g(A) = 0$.
 \end{claim*}
 
 \begin{proof}
-  Consider the sequence of successive matrix powers. Since the vector space $M_{n \times n}(K)$ has dimension $n^2$, we can choose an integer $r \ge n^2$ to construct a sequence of length $r+1$:
+  Consider the sequence of successive matrix powers. Since the vector space $\M_{n \times n}(K)$ has dimension $n^2$, we can choose an integer $r \ge n^2$ to construct a sequence of length $r+1$:
   \begin{equation} \label{eq:matrix_powers}
     \underbrace{I_n, \ A, \ A^2, \ A^3, \ \dots, \ A^r}_{r+1 \text{ elements in a space of dimension } n^2}
   \end{equation}
@@ -620,7 +620,7 @@ A similar logic applies seamlessly to any abstract operator $T \in \End(V)$, whe
 While the minimal polynomial guarantees that an operator satisfies \textit{some} polynomial equation, one of the most celebrated theorems in mathematics provides a canonical polynomial that always works: the characteristic polynomial.
 
 \begin{theorem}[Cayley-Hamilton]\label{thm:cayley_hamilton}
-  Let $A \in M_{n \times n}(K)$. Then
+  Let $A \in \M_{n \times n}(K)$. Then
   \begin{enumerate}
     \item  $P_A(A) = 0$.
     \item Let $V$ be a finite-dimensional vector space over $K$, and $T \in \End(V)$. Then $P_T(T) = 0$.
@@ -628,14 +628,14 @@ While the minimal polynomial guarantees that an operator satisfies \textit{some}
 \end{theorem}
 
 \begin{exercise}\label{ex:cayley_inverse}
-  Let $A \in M_{n \times n}(K)$ be an invertible matrix. Use Theorem \ref{thm:cayley_hamilton} to prove that the inverse matrix $A^{-1}$ can be expressed as a polynomial in $A$ of degree at most $n-1$.
+  Let $A \in \M_{n \times n}(K)$ be an invertible matrix. Use Theorem \ref{thm:cayley_hamilton} to prove that the inverse matrix $A^{-1}$ can be expressed as a polynomial in $A$ of degree at most $n-1$.
 \end{exercise}
 
 \subsection*{Proof of Cayley-Hamilton Theorem (Analytic Approach)}
 
 Before we dive into a purely algebraic mechanism, it is highly instructive to view this theorem through the lens of topology. The core idea is elegant: the theorem is trivially true for diagonal matrices. If we can show that diagonalizable matrices are "dense" (meaning almost all matrices are diagonalizable), we can use the continuity of polynomials to force the theorem to hold for \textit{every} matrix.
 
-First, we note that it is enough to prove part \textbf{(a)} (for matrices). Suppose we know that \textbf{(a)} is true, and let $T \in \End(V)$. Pick a basis $\mathcal{B}$ for $V$, and assign $A := [T]_{\mathcal{B}}^{\mathcal{B}} \in M_{n \times n}(K)$.
+First, we note that it is enough to prove part \textbf{(a)} (for matrices). Suppose we know that \textbf{(a)} is true, and let $T \in \End(V)$. Pick a basis $\mathcal{B}$ for $V$, and assign $A := [T]_{\mathcal{B}}^{\mathcal{B}} \in \M_{n \times n}(K)$.
 
 \begin{claim*}[Matrix Representation of Polynomials]\label{claim:matrix_poly}
   $[P_T(T)]_{\mathcal{B}}^{\mathcal{B}} = P_A(A)$.
@@ -654,7 +654,7 @@ First, we note that it is enough to prove part \textbf{(a)} (for matrices). Supp
 If Cayley-Hamilton holds for matrices, then $P_A(A) = 0$, meaning $[P_T(T)]_{\mathcal{B}}^{\mathcal{B}} = 0$. Since the zero matrix uniquely represents the zero endomorphism, we conclude $P_T(T) = 0$. We now concentrate entirely on proving the theorem for matrices, beginning over the complex field $\mathbb{C}$.
 
 \begin{lemma}[Cayley-Hamilton for Diagonalizable Matrices]\label{lemma:cayley_diagonalizable}
-  Suppose $A \in M_{n \times n}(\mathbb{C})$ is diagonalizable. Then $P_A(A) = 0$.
+  Suppose $A \in \M_{n \times n}(\mathbb{C})$ is diagonalizable. Then $P_A(A) = 0$.
 \end{lemma}
 
 \begin{proof}
@@ -668,7 +668,7 @@ If Cayley-Hamilton holds for matrices, then $P_A(A) = 0$, meaning $[P_T(T)]_{\ma
 \end{proof}
 
 \begin{lemma}[Density of Diagonalizable Matrices]\label{lemma:sequence_diagonalizable}
-  Let $A \in M_{n \times n}(\mathbb{C})$ be any arbitrary matrix. Then there exists a sequence of matrices $(A_k)_{k=1}^\infty$ such that:
+  Let $A \in \M_{n \times n}(\mathbb{C})$ be any arbitrary matrix. Then there exists a sequence of matrices $(A_k)_{k=1}^\infty$ such that:
   \begin{enumerate}
     \item Each $A_k$ is diagonalizable.
     \item $\lim_{k \to \infty} A_k = A$.
@@ -690,13 +690,13 @@ If Cayley-Hamilton holds for matrices, then $P_A(A) = 0$, meaning $[P_T(T)]_{\ma
 \end{proof}
 
 \begin{lemma}[Cayley-Hamilton over $\mathbb{C}$]\label{lemma:cayley_C}
-  Cayley-Hamilton holds for every matrix $A \in M_{n \times n}(\mathbb{C})$.
+  Cayley-Hamilton holds for every matrix $A \in \M_{n \times n}(\mathbb{C})$.
 \end{lemma}
 
 \begin{proof}
   By our construction in Lemma \ref{lemma:sequence_diagonalizable}, we can find a sequence of diagonalizable matrices $A_k \to A$. By Lemma \ref{lemma:cayley_diagonalizable}, the theorem holds for all of them: $P_{A_k}(A_k) = 0$.
 
-  Notice that the mapping $\Phi: M_{n \times n}(\mathbb{C}) \to M_{n \times n}(\mathbb{C})$ defined by $\Phi(M) = P_M(M)$ is built entirely from taking determinants, adding matrices, and multiplying matrices. Therefore, $\Phi$ is a continuous polynomial function of the matrix entries. Because continuous functions commute with limits, we have:
+  Notice that the mapping $\Phi: \M_{n \times n}(\mathbb{C}) \to \M_{n \times n}(\mathbb{C})$ defined by $\Phi(M) = P_M(M)$ is built entirely from taking determinants, adding matrices, and multiplying matrices. Therefore, $\Phi$ is a continuous polynomial function of the matrix entries. Because continuous functions commute with limits, we have:
   \[
   P_A(A) = \Phi(A) = \Phi\left(\lim_{k \to \infty} A_k\right) = \lim_{k \to \infty} \Phi(A_k) = \lim_{k \to \infty} 0 = 0.
   \]
@@ -831,7 +831,7 @@ While the analytic proof is mathematically beautiful, it relies on topological m
 \section{Column Rank and Row Rank}
 
 \begin{theorem}[Equality of Column and Row Rank] \label{thm:17.c.1}
-Let $A \in M_{m \times n}(K)$. Then, $\rank_{\text{col}}(A) = \rank_{\text{row}}(A)$.
+Let $A \in \M_{m \times n}(K)$. Then, $\rank_{\text{col}}(A) = \rank_{\text{row}}(A)$.
 \end{theorem}
 
 \begin{remark}[Notation and Properties of Rank]
@@ -841,7 +841,7 @@ Let $A \in M_{m \times n}(K)$. Then, $\rank_{\text{col}}(A) = \rank_{\text{row}}
     \begin{equation*}
         \rank(A) = \rank_{\text{row}}(A) = \rank_{\text{row}}(A') = \text{number of pivots in } A'
     \end{equation*}
-    \item Recall that for a linear map $T: V \to W$, we defined $\rank(T) := \dim \operatorname{Im}(T)$. Moreover, if $A \in M_{m \times n}(K)$, then $\rank(T_A) = \dim \operatorname{Im}(T_A) = \rank_{\text{col}}(A)$.
+    \item Recall that for a linear map $T: V \to W$, we defined $\rank(T) := \dim \operatorname{Im}(T)$. Moreover, if $A \in \M_{m \times n}(K)$, then $\rank(T_A) = \dim \operatorname{Im}(T_A) = \rank_{\text{col}}(A)$.
 \end{enumerate}
 \end{remark}
 
@@ -868,8 +868,9 @@ Let $T: V \to W$ be a linear map, and let $S: W \to W'$ and $L: P \to V$ be isom
 This completes the proof.
 \end{proof}
 
-\begin{lemma}[Invertibility of the Transpose] \label{lemma:17.c.3}
-Let $A \in M_{n \times n}(K)$. Then, $A \in GL_n(K)$ if and only if $A^T \in GL_n(K)$.
+
+\begin{lemma}[Invertibility of the Transpose] \label{lemma:transpose_invertibility_v2}
+Let $A \in \M_{n \times n}(K)$. Then, $A \in \GL_n(K)$ if and only if $A^T \in \GL_n(K)$.
 \end{lemma}
 
 \begin{proof}
@@ -881,7 +882,7 @@ In summary, we have established that $A \in GL_n(K)$ if and only if $\rank_{\tex
 \end{proof}
 
 \begin{lemma}[Rank Invariance under Matrix Equivalence] \label{lemma:17.c.4}
-Let $A, B \in M_{m \times n}(K)$ such that $B = P A Q$, where $P \in GL_m(K)$ and $Q \in GL_n(K)$. Then:
+Let $A, B \in M_{m \times n}(K)$ such that $B = P A Q$, where $P \in \GL_m(K)$ and $Q \in \GL_n(K)$. Then:
 \begin{enumerate}
     \item $\rank_{\text{col}}(A) = \rank_{\text{col}}(B)$.
     \item $\rank_{\text{row}}(A) = \rank_{\text{row}}(B)$.

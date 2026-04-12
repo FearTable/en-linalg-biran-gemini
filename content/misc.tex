@@ -1,4 +1,4 @@
-\setcounter{chapter}{19} % Chapter 19
+\setcounter{chapter}{18} % Chapter 18
 \chapter{Miscellaneous Topics and Motivation}
 
 \section{Geometric Motivation: Why Abstraction Matters}
@@ -136,10 +136,10 @@ In our strict definition of a vector space, there is always a distinguished orig
 
 \subsection{The Vector Space of Fibonacci Sequences}
 
-Consider the set $Fib \subseteq \mathbb{R}^\infty$ of all infinite real sequences $(a_0, a_1, a_2, \dots)$ that satisfy the linear recurrence relation $a_n = a_{n-1} + a_{n-2}$ for all $n \ge 2$.
+Consider the set $\Fib \subseteq \mathbb{R}^\infty$ of all infinite real sequences $(a_0, a_1, a_2, \dots)$ that satisfy the linear recurrence relation $a_n = a_{n-1} + a_{n-2}$ for all $n \ge 2$.
 
 \begin{proposition}[Structure of $Fib$]
-  The set $Fib$ is a 2-dimensional subspace of $\mathbb{R}^\infty$. The evaluation map $F \colon Fib \to \mathbb{R}^2$ sending a sequence to its first two terms, $(a_n) \mapsto (a_0, a_1)$, is a linear isomorphism.
+  The set $\Fib$ is a 2-dimensional subspace of $\mathbb{R}^\infty$. The evaluation map $F \colon \Fib \to \mathbb{R}^2$ sending a sequence to its first two terms, $(a_n) \mapsto (a_0, a_1)$, is a linear isomorphism.
 \end{proposition}
 
 To find a closed-form formula for the Fibonacci numbers (like Binet's formula), we study the \textbf{shift map} $S \colon \mathbb{R}^\infty \to \mathbb{R}^\infty$ defined by shifting the sequence one position to the left:
@@ -150,8 +150,8 @@ By utilizing the isomorphism $F$, we can translate the abstract shift operator $
 
 \begin{center}
   \begin{tikzpicture}[node distance=3cm, auto, thick]
-    \node (Fib1) {$Fib$};
-    \node (Fib2) [right of=Fib1, node distance=4cm] {$Fib$};
+    \node (Fib1) {$\Fib$};
+    \node (Fib2) [right of=Fib1, node distance=4cm] {$\Fib$};
     \node (R1) [below of=Fib1, node distance=2cm] {$\mathbb{R}^2$};
     \node (R2) [below of=Fib2, node distance=2cm] {$\mathbb{R}^2$};
 
@@ -172,4 +172,5 @@ The problem of finding a geometric sequence $(1, \lambda, \lambda^2, \dots)$ ins
   The vector $v$ is called an \qt{eigenvector} associated with the eigenvalue $\lambda$.
 \end{definition}
 
-In the context of the Fibonacci matrix $A = \left(\begin{smallmatrix} 0 & 1 \\ 1 & 1 \end{smallmatrix}\right)$, calculating the roots of the characteristic polynomial reveals the eigenvalues to be the Golden Ratio $\varphi = \frac{1+\sqrt{5}}{2}$ and its conjugate $\psi = \frac{1-\sqrt{5}}{2}$. Their associated eigenvectors span $Fib$, leading directly to the closed-form Binet formula for the sequence. This forms the primary motivation for the upcoming deeper study of eigenvalues and determinants.
+%In the context of the Fibonacci matrix $A = \left(\begin{smallmatrix} 0 & 1 \\ 1 & 1 \end{smallmatrix}\right)$, calculating the roots of the characteristic polynomial reveals the eigenvalues to be the Golden Ratio $\varphi = \frac{1+\sqrt{5}}{2}$ and its conjugate $\psi = \frac{1-\sqrt{5}}{2}$. Their associated eigenvectors span $Fib$, leading directly to the closed-form Binet formula for the sequence. This forms the primary motivation for the upcoming deeper study of eigenvalues and determinants.
+%In the context of the Fibonacci matrix $A = \begin{pmatrix} 0 & 1 \\ 1 & 1 \end{pmatrix}$, calculating the roots of the characteristic polynomial reveals the eigenvalues to be the Golden Ratio $\varphi = \frac{1+\sqrt{5}}{2}$ and its conjugate $\psi = \frac{1-\sqrt{5}}{2}$. Their associated eigenvectors span $\Fib$, leading directly to the closed-form Binet formula for the sequence. This forms the primary motivation for the upcoming deeper study of eigenvalues and determinants.
